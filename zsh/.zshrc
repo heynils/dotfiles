@@ -110,6 +110,8 @@ alias gc='git checkout'
 alias gp='git pull'
 alias gpo='git push origin'
 
+alias pd='pushd'
+
 # Functions
 function cdls() {
     cd "$@" && ls;
