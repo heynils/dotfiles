@@ -12,3 +12,6 @@ use pre-configured .zshrc
 
 restart shell
 source .~/.zshrc
+
+symlink file
+`ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc?`
