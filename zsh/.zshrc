@@ -114,3 +114,5 @@ alias gpo='git push origin'
 function cdls() {
     cd "$@" && ls;
 }
+
+eval "$(starship init zsh)"
