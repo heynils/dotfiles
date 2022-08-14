@@ -15,3 +15,6 @@ source .~/.zshrc
 
 symlink file
 `ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc?`
+
+starship install
+curl -sS https://starship.rs/install.sh | sh
