@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 #alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls -a --color'
 
+#Git
 alias gs='git status'
 alias gc='git checkout'
 alias gp='git pull'
