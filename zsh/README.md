@@ -20,3 +20,6 @@ symlink file
 
 starship install
 curl -sS https://starship.rs/install.sh | sh
+
+zoxide install
+curl -sS https://webinstall.dev/zoxide | bash
