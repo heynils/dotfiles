@@ -1,5 +1,5 @@
 # Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+# "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -12,6 +12,16 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 [package]
 disabled = true
 
+[aws]
+disabled = true
+
 [git_branch]
 symbol = ""
 
+[python]
+# Display the version of python from inside a local venv.
+#
+# Note this will only work when the venv is inside the project and it will only
+# work in the directory that contains the venv dir but maybe this is ok?
+pyenv_version_name = true
+ 
