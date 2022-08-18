@@ -111,6 +111,7 @@ alias gc='git checkout'
 alias gp='git pull'
 alias gpo='git push origin'
 alias gca='git commit -am'
+alias cr='code -r .'
 
 alias pd='pushd'
 
