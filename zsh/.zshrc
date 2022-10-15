@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -113,7 +114,9 @@ alias gpo='git push origin'
 alias gca='git commit -am'
 alias cr='code -r .'
 
+#Other
 alias pd='pushd'
+alias cat='batcat'
 
 # Functions
 function cdls() {
@@ -121,8 +124,11 @@ function cdls() {
 }
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(zoxide init zsh)"

@@ -18,7 +18,11 @@ disabled = true
 [git_branch]
 symbol = ""
 
+[nodejs]
+disabled = true
+
 [python]
+disabled = false
 # Display the version of python from inside a local venv.
 #
 # Note this will only work when the venv is inside the project and it will only
