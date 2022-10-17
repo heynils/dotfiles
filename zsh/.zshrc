@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 #alias zshconfig="mate ~/.zshrc"
 #alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='ls -a --color'
 
 #Git
 alias gs='git status'
@@ -117,6 +116,8 @@ alias cr='code -r .'
 #Other
 alias pd='pushd'
 alias cat='batcat'
+alias ls='ls -a --color'
+alias vim='nvim'
 
 # Functions
 function cdls() {
@@ -130,5 +131,5 @@ eval "$(starship init zsh)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"

@@ -5,6 +5,14 @@ Dotfiles and configurations.
 install zsh  
 `sudo apt install zsh`  
 
+# neovim
+install neovim
+`sudo apt install neovim`
+
+# bat
+install bat
+`sudo apt install bat`
+
 # oh-my-zsh
 install oh-my-zsh  
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`  
