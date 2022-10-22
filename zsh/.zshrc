@@ -120,6 +120,7 @@ alias pd='pushd'
 alias cat='batcat'
 alias ls='ls -a --color'
 alias vim='nvim'
+alias vi='nvim'
 
 # Functions
 function cdls() {
