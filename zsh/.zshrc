@@ -121,6 +121,8 @@ alias cat='batcat'
 alias ls='ls -a --color'
 alias vim='nvim'
 alias vi='nvim'
+alias start='explorer.exe'
+
 
 # Functions
 function cdls() {
