@@ -31,3 +31,6 @@ install zoxide
 
 # install tree
 sudo apt-get install tree
+
+# install tmux
+sudo apt install tmux
