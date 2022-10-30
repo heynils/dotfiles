@@ -124,6 +124,7 @@ alias vi='nvim'
 alias start='explorer.exe'
 
 
+alias start='explorer.exe'
 # Functions
 function cdls() {
     cd "$@" && ls;
