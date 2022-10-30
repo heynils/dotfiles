@@ -29,4 +29,5 @@ install starship
 install zoxide   
 `curl -sS https://webinstall.dev/zoxide | bash`  
 
-
+# install tree
+sudo apt-get install tree
