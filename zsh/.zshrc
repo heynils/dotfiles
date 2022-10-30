@@ -114,6 +114,7 @@ alias gca='git commit -am'
 alias cr='code -r .'
 alias gl='git log'
 alias gd='git diff'
+alias ga.='git add .'
 
 #Other
 alias pd='pushd'
