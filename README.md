@@ -2,15 +2,12 @@
 Dotfiles and configurations.  
 
 # zsh
-install zsh  
 `sudo apt install zsh`  
 
 # neovim
-install neovim
 `sudo apt install neovim`
 
 # bat
-install bat
 `sudo apt install bat`
 
 # oh-my-zsh
@@ -29,8 +26,8 @@ install starship
 install zoxide   
 `curl -sS https://webinstall.dev/zoxide | bash`  
 
-# install tree
-sudo apt-get install tree
+# tree
+`sudo apt-get install tree`
 
-# install tmux
-sudo apt install tmux
+# tmux
+`sudo apt install tmux`
