@@ -126,6 +126,9 @@ alias start='explorer.exe'
 
 
 alias start='explorer.exe'
+
+#python
+alias python='python3'
 # Functions
 function cdls() {
     cd "$@" && ls;
@@ -138,5 +141,5 @@ eval "$(starship init zsh)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
