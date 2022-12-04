@@ -31,3 +31,8 @@ install zoxide
 
 # tmux
 `sudo apt install tmux`
+
+# exa
+`sudo apt install exa`
+
+

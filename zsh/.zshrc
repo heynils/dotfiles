@@ -77,6 +77,7 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 )
 
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -119,11 +120,10 @@ alias ga.='git add .'
 #Other
 alias pd='pushd'
 alias cat='batcat'
-alias ls='ls -a --color'
+alias ls='exa -la'
 alias vim='nvim'
 alias vi='nvim'
 alias start='explorer.exe'
-
 
 alias start='explorer.exe'
 
