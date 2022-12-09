@@ -127,6 +127,7 @@ alias start='explorer.exe'
 
 alias start='explorer.exe'
 
+alias xpc='explore-cli'
 #python
 alias python='python3'
 # Functions
@@ -145,3 +146,5 @@ eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim

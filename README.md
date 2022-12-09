@@ -35,4 +35,7 @@ install zoxide
 # exa
 `sudo apt install exa`
 
+# gh cli
+
+# windows terminal
 
