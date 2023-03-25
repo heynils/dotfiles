@@ -112,11 +112,13 @@ alias gs='git status'
 alias gc='git checkout'
 alias gp='git pull'
 alias gpo='git push origin'
-alias gca='git commit -am'
+alias gcam='git commit -am'
+alias gcm='git commit -m'
 alias cr='code -r .'
-alias gl='git log'
+alias gl="git log --pretty=format:'%C(yellow)%h %Cgreen%ah %Cblue%aN %Creset%s %Cred %d'"
 alias gd='git diff'
 alias ga.='git add .'
+alias gci='git checkout `(git branch | fzf | xargs)`'
 
 #Other
 alias pd='pushd'
@@ -143,7 +145,7 @@ eval "$(starship init zsh)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
