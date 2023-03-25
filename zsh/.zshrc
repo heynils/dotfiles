@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$PATH
 
 
 # Path to your oh-my-zsh installation.
@@ -87,6 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='vim'
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else

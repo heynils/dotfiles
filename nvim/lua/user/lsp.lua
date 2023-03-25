@@ -44,10 +44,16 @@ lsp_config.omnisharp.setup {
     on_attach = on_attach
 }
 
--- lsp_config.rust_analyzer.setup {
---     on_attach = on_attach
--- }
---
+lsp_config.rust_analyzer.setup {
+    cmd = {
+        os.getenv("HOME") .. "/.local/share/lsp/rust-analyzer/rust-analyzer",
+        "--languageserver",
+        "--hostPID",
+        tostring(vim.fn.getpid())
+    };
+    on_attach = on_attach
+}
+
 -- lsp_config.pyright.setup {
 --     on_attach = on_attach
 -- }
