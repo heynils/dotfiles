@@ -77,6 +77,7 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 )
 
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -120,14 +121,14 @@ alias ga.='git add .'
 #Other
 alias pd='pushd'
 alias cat='batcat'
-alias ls='ls -a --color'
+alias ls='exa -la'
 alias vim='nvim'
 alias vi='nvim'
 alias start='explorer.exe'
 
-
 alias start='explorer.exe'
 
+alias xpc='explore-cli'
 #python
 alias python='python3'
 # Functions
@@ -144,3 +145,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
