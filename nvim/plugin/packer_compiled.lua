@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/nhey/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/nhey/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/nhey/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -168,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nhey/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  rainbow_csv = {
+    loaded = true,
+    path = "/home/nhey/.local/share/nvim/site/pack/packer/start/rainbow_csv",
+    url = "https://github.com/mechatroner/rainbow_csv"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,

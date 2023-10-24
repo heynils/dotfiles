@@ -84,8 +84,13 @@ return packer.startup(function(use)
     -- use "https://codeberg.org/oahlen/iceberg.nvim"
     use "rebelot/kanagawa.nvim"
 
+    -- git gutter
     use "airblade/vim-gitgutter"
 
+    -- rainbow csv 
+    use "mechatroner/rainbow_csv"
+
+    use "lewis6991/gitsigns.nvim"
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
