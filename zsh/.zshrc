@@ -118,7 +118,7 @@ alias cr='code -r .'
 alias gl="git log --pretty=format:'%C(yellow)%h %Cgreen%ah %Cblue%aN %Creset%s %Cred %d'"
 alias gd='git diff'
 alias ga.='git add .'
-alias gci='git checkout `(git branch | fzf | xargs)`'
+alias gci='git checkout `(git branch -a | fzf | xargs)`'
 
 #Other
 alias pd='pushd'
@@ -137,6 +137,9 @@ alias python='python3'
 function cdls() {
     cd "$@" && ls;
 }
+#dotnet
+alias db='dotnet build'
+alias code="/mnt/c/Users/nilsh/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
 
 eval "$(starship init zsh)"
 
@@ -151,3 +154,9 @@ export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
+
+export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Microsoft/WindowsApps"
+export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Programs/Microsoft\ VS\ Code/bin"
+# export PATH="$PATH:/mnt/c/Program Files/Docker/Docker/resources/bin"
+# export PATH="$PATH:/mnt/c/ProgramData/DockerDesktop/version-bin"
+export PATH="$PATH:/mnt/c/WINDOWS"

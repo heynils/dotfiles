@@ -13,4 +13,5 @@ require "user.colorizer"
 require "user.colorscheme"
 -- require "statusline"
 require("kanagawa").setup()
+require("gitsigns").setup()
 -- pcall(vim.cmd, "colorscheme " .. "kanagawa")
