@@ -139,7 +139,7 @@ function cdls() {
 }
 #dotnet
 alias db='dotnet build'
-alias code="/mnt/c/Users/nilsh/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+alias code="/mnt/c/Users/nils.heyman/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
 
 eval "$(starship init zsh)"
 
@@ -150,13 +150,14 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
-export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 
-export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Microsoft/WindowsApps"
-export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Programs/Microsoft\ VS\ Code/bin"
+# export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Microsoft/WindowsApps"
+# export PATH="$PATH:/mnt/c/Users/nilsh/AppData/Local/Programs/Microsoft\ VS\ Code/bin"
 # export PATH="$PATH:/mnt/c/Program Files/Docker/Docker/resources/bin"
 # export PATH="$PATH:/mnt/c/ProgramData/DockerDesktop/version-bin"
 export PATH="$PATH:/mnt/c/WINDOWS"
+# export PATH="$PATH:/mnt/c/Users/nils.heyman/AppData/Local/Microsoft/WinGet/Packages/equalsraf.win32yank_Microsoft.Winget.Source_8wekyb3d8bbwe/"
