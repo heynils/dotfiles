@@ -9,7 +9,7 @@ config.window_decorations = 'RESIZE'
 
 config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=true
--- config.default_cursor_style = 'BlinkingBar'
+warn_about_missing_glyphs=false
 
 -- For arrow in top bar
 wezterm.on('update-status', function(window)
