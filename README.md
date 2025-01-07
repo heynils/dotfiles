@@ -29,13 +29,14 @@ install zoxide
 # tree
 `sudo apt-get install tree`
 
-# tmux
-`sudo apt install tmux`
+# delta
+`sudo apt install git-delta`
 
 # exa
 `sudo apt install exa`
 
 # gh cli
+# wezterm
 
 # windows terminal
 
