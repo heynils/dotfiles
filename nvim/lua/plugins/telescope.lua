@@ -56,7 +56,7 @@ return {
             vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Find files" })
             vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Live grep" })
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
-            vim.keymap.set("n", "<leader>s", builtin.treesitter, { desc = "Treesiter symbols" })
+            -- vim.keymap.set("n", "<leader>s", builtin.treesitter, { desc = "Treesiter symbols" })
             vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
         end

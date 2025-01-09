@@ -6,7 +6,7 @@ return {
 
             wk.add({
                 { "<leader>c", group = "[C]ode" },
-                { "<leader>d", group = "[D]ebug" },
+                -- { "<leader>d", group = "[D]ebug" },
                 { "<leader>h", group = "[H]istory" },
                 -- { "<leader>t", group = "[T]ab" }
             })
