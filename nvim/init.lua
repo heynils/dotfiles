@@ -59,6 +59,7 @@ vim.g.loaded_zipPlugin = 1
 -- Keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
 -- Remap space as leader key
@@ -118,14 +119,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end
 })
-
-vim.api.nvim_create_user_command('ApplyDotfiles', function(_)
-    if os.execute("chezmoi apply --force") == 0 then
-        print("Dotfiles updated")
-    else
-        print("Dotfiles could not be updated")
-    end
-end, {})
 
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
