@@ -39,4 +39,5 @@ install zoxide
 # wezterm
 
 # windows terminal
+# NerdFonts
 
