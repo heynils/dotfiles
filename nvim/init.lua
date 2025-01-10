@@ -96,7 +96,7 @@ vim.keymap.set("v", "i", "<ESC>i")
 vim.keymap.set("v", "a", "<ESC>a")
 
 -- Sane way of exiting terminal mode
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
+-- vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
 -- Close current buffer
 vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current buffer" })
