@@ -27,9 +27,9 @@ return {
                 }
             })
 
-            -- vim.keymap.set("n", "gn", vim.diagnostic.goto_next)
-            -- vim.keymap.set("n", "gN", vim.diagnostic.goto_prev)
-            vim.keymap.set("n", "<leader>l", vim.diagnostic.setloclist, { desc = "Set LOC list" })
+            vim.keymap.set("n", "gn", vim.diagnostic.goto_next)
+            vim.keymap.set("n", "gN", vim.diagnostic.goto_prev)
+            vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
             local on_attach = function(_, bufnr)
                 local telescope = require('telescope.builtin')

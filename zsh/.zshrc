@@ -31,6 +31,7 @@ alias gci='git checkout `(git branch -a | fzf | xargs)`'
 alias cat='batcat'
 alias ls='exa -la'
 alias vim='nvim'
+alias vi='nvim'
 
 #python
 alias python='python3'
