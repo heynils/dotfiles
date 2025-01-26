@@ -17,6 +17,20 @@ return {
                         { desc = "[H]istory [B]lame", buffer = bufnr })
                     vim.keymap.set('n', '<space>ht', gs.toggle_current_line_blame,
                         { desc = "[H]istory [T]oggle blame", buffer = bufnr })
+
+                    -- Normal mode
+                    vim.keymap.set('n', '<leader>hp', gs.preview_hunk)
+                    vim.keymap.set('n', '<leader>hr', gs.reset_hunk)
+                    vim.keymap.set('n', '<leader>hs', gs.stage_hunk)
+                    vim.keymap.set('n', '<leader>hd', gs.diffthis)
+
+                    -- Visual mode
+                    vim.keymap.set('v', '<leader>hr', function()
+                              gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                    end)
+                    vim.keymap.set('v', '<leader>hs', function()
+                          gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                        end)
                 end
             }
         end
