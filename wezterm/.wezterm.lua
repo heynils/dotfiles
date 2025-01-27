@@ -8,7 +8,7 @@ config.font = wezterm.font 'JetBrains Mono'
 config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 
-config.window_decorations = 'RESIZE'
+config.window_decorations = 'NONE'
 
 config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=true

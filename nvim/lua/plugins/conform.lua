@@ -4,7 +4,6 @@ return {
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    fish = { "fish_indent" },
                     json = { "jq" }
                 },
                 format_on_save = {
