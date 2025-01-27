@@ -39,6 +39,9 @@ alias python='python3'
 #dotnet
 alias db='dotnet build'
 
+#lazygit
+alias lg='lazygit'
+
 eval "$(starship init zsh)"
 
 # Generated for envman. Do not edit.

@@ -32,8 +32,6 @@ return {
             vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
             local on_attach = function(_, bufnr)
-                local telescope = require('telescope.builtin')
-
                 local map = function(keys, func, desc)
                     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
                 end
