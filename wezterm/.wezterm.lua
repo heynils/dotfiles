@@ -14,6 +14,13 @@ config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=true
 warn_about_missing_glyphs=false
 
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
+
 local function toggle_horizontal_split(window, pane)
   -- Check if there's more than one pane in the current tab
   local tab = window:mux_window():active_tab()
