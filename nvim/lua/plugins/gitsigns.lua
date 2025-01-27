@@ -25,6 +25,24 @@ return {
                     vim.keymap.set('n', '<leader>hs', gs.stage_hunk)
                     vim.keymap.set('n', '<leader>hd', gs.diffthis)
 
+                    -- Navigation
+                    vim.keymap.set('n', ']c', function()
+                      if vim.wo.diff then
+                        vim.cmd.normal({']c', bang = true})
+                      else
+                        gs.nav_hunk('next')
+                      end
+                    end)
+
+                    vim.keymap.set('n', '[c', function()
+                      if vim.wo.diff then
+                        vim.cmd.normal({'[c', bang = true})
+                      else
+                        gs.nav_hunk('prev')
+                      end
+                    end)
+
+                    vim.keymap.set('n', '<leader>hp', gs.preview_hunk)
                     -- Visual mode
                     vim.keymap.set('v', '<leader>hr', function()
                               gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
