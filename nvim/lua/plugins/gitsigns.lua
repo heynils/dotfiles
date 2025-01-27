@@ -4,21 +4,22 @@ return {
         config = function()
             require("gitsigns").setup {
                 signs = {
-                    add          = { text = '+' },
-                    change       = { text = '~' },
-                    delete       = { text = '_' },
+                    add          = { text = '┃' },
+                    change       = { text = '┃' },
+                    delete       = { text = '┃' },
                     topdelete    = { text = '‾' },
                     changedelete = { text = '~' },
                     untracked    = { text = '┆' },
                 },
                 on_attach = function(bufnr)
                     local gs = package.loaded.gitsigns
+
+                    -- Normal mode
                     vim.keymap.set("n", "<space>hb", function() gs.blame_line { full = true } end,
                         { desc = "[H]istory [B]lame", buffer = bufnr })
                     vim.keymap.set('n', '<space>ht', gs.toggle_current_line_blame,
                         { desc = "[H]istory [T]oggle blame", buffer = bufnr })
 
-                    -- Normal mode
                     vim.keymap.set('n', '<leader>hp', gs.preview_hunk)
                     vim.keymap.set('n', '<leader>hr', gs.reset_hunk)
                     vim.keymap.set('n', '<leader>hs', gs.stage_hunk)
@@ -33,6 +34,7 @@ return {
                         end)
                 end
             }
+            require("scrollbar.handlers.gitsigns").setup()
         end
     }
 }
