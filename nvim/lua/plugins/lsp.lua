@@ -39,14 +39,26 @@ return {
                 end
 
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-                map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                -- map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                map("gd", function()
+                    require('omnisharp_extended').telescope_lsp_definition()
+                end, "[G]oto [D]efinition")
+                -- map("gi", telescope.lsp_implementations, "[G]oto [I]mplementation")
+                map("gi", function()
+                    require('omnisharp_extended').telescope_lsp_implementation()
+                end, "[G]oto [I]mplementation")
+                -- map("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+                map("<leader>D", function()
+                    require('omnisharp_extended').telescope_lsp_type_definition()
+                end, "Type [D]efinition")
+                -- map("gr", telescope.lsp_references, "[G]oto [R]eferences")
+                map("gr", function()
+                    require('omnisharp_extended').telescope_lsp_references()
+                end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
-                map("gi", telescope.lsp_implementations, "[G]oto [I]mplementation")
                 -- map("<C-s>", vim.lsp.buf.signature_help, "Signature help")
-                map("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
                 map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-                map("gr", telescope.lsp_references, "[G]oto [R]eferences")
                 map("==", function() vim.lsp.buf.format { async = true } end, "Format code")
             end
 
@@ -75,12 +87,10 @@ return {
                 }
             }
 
-            lsp_config.rust_analyzer.setup { on_attach = on_attach }
             lsp_config.pyright.setup { on_attach = on_attach }
             lsp_config.ts_ls.setup { on_attach = on_attach }
             lsp_config.html.setup { on_attach = on_attach }
             lsp_config.cssls.setup { on_attach = on_attach }
-            lsp_config.svelte.setup { on_attach = on_attach }
 
             lsp_config.omnisharp.setup {
                 handlers = {
