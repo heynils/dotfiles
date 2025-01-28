@@ -105,7 +105,7 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 -- Close current buffer
 vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current buffer" })
 -- Close current window 
-vim.keymap.set("n", "<leader>z", "<CMD>close<CR>", { desc = "Close current window" })
+vim.keymap.set("n", "<leader>w", "<CMD>close<CR>", { desc = "Close current window" })
 
 -- Close floating (help) buffer
 vim.keymap.set("n", "<ESC>", "<CMD>fclose<CR>", { desc = "Close floating buffer" })
