@@ -7,6 +7,7 @@ config.initial_rows = 60
 config.font = wezterm.font 'JetBrains Mono'
 config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
+config.audible_bell = 'Disabled'
 
 config.window_decorations = 'NONE'
 
