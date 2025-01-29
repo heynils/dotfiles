@@ -25,7 +25,6 @@ alias gcm='git commit -m'
 alias gl="git log --pretty=format:'%C(yellow)%h %Cgreen%ah %Cblue%aN %Creset%s %Cred %d'"
 alias gd='git diff'
 alias ga.='git add .'
-alias gci='git checkout `(git branch -a | fzf | xargs)`'
 
 #Other
 alias cat='batcat'
@@ -42,8 +41,6 @@ alias db='dotnet build'
 #lazygit
 alias lg='lazygit'
 
-eval "$(starship init zsh)"
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
@@ -51,9 +48,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 eval "$(zoxide init zsh)"
+
 export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
-
-# export PATH="$PATH:/mnt/c/WINDOWS"
