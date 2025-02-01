@@ -47,7 +47,11 @@ alias lg='lazygit'
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
+#zoxide
 eval "$(zoxide init zsh)"
+
+#starship prompt
+eval "$(starship init zsh)"
 
 export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
