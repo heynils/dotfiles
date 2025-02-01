@@ -25,13 +25,9 @@ return {
                     dotfiles = false,
                 },
                 view = {
-                    width = 30,
                     signcolumn = "no"
                 }
             }
-
-            vim.keymap.set("n", "<leader>e", "<CMD>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
-            vim.keymap.set("n", "<leader>E", "<CMD>NvimTreeFindFile<CR>", { desc = "Find file in file tree" })
         end
     },
 
