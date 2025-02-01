@@ -29,6 +29,7 @@ return {
 
             vim.keymap.set("n", "gn", vim.diagnostic.goto_next)
             vim.keymap.set("n", "gN", vim.diagnostic.goto_prev)
+            vim.keymap.set("n", "gC", vim.diagnostic.open_float)
             vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
             local on_attach = function(_, bufnr)
@@ -37,19 +38,15 @@ return {
                 end
 
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-                -- map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
                 map("gd", function()
                     require('omnisharp_extended').telescope_lsp_definition({ jump_type = "vsplit" })
                 end, "[G]oto [D]efinition")
-                -- map("gi", telescope.lsp_implementations, "[G]oto [I]mplementation")
                 map("gi", function()
                     require('omnisharp_extended').telescope_lsp_implementation()
                 end, "[G]oto [I]mplementation")
-                -- map("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
                 map("<leader>D", function()
                     require('omnisharp_extended').telescope_lsp_type_definition()
                 end, "Type [D]efinition")
-                -- map("gr", telescope.lsp_references, "[G]oto [R]eferences")
                 map("gr", function()
                     require('omnisharp_extended').telescope_lsp_references({ excludeDefinition = true })
                 end, "[G]oto [R]eferences")
