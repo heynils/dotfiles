@@ -10,10 +10,10 @@ return {
                 ignored_next_char = "[%w%.#]"
             }
 
-            require("cmp").event:on(
-                "confirm_done",
-                require("nvim-autopairs.completion.cmp").on_confirm_done()
-            )
+            -- require("cmp").event:on(
+            --     "confirm_done",
+            --     require("nvim-autopairs.completion.cmp").on_confirm_done()
+            -- )
         end
     }
 }
