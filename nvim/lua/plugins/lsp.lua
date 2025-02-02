@@ -39,7 +39,8 @@ return {
 
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
                 map("gd", function()
-                    require('omnisharp_extended').telescope_lsp_definition({ jump_type = "vsplit" })
+                    -- require('omnisharp_extended').telescope_lsp_definition({ jump_type = "vsplit" })
+                    require('omnisharp_extended').telescope_lsp_definition()
                 end, "[G]oto [D]efinition")
                 map("gi", function()
                     require('omnisharp_extended').telescope_lsp_implementation()

@@ -20,7 +20,9 @@ return {
                 },
                 filters = {
                     custom = {
-                        "^.git$"
+                        "^.git$",
+                        "bin",
+                        "obj"
                     },
                     dotfiles = false,
                 },
