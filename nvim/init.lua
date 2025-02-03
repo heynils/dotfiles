@@ -110,6 +110,10 @@ vim.keymap.set("n", "<leader>w", "<CMD>close<CR>", { desc = "Close current windo
 -- Close floating (help) buffer
 vim.keymap.set("n", "<ESC>", "<CMD>fclose<CR>", { desc = "Close floating buffer" })
 
+-- Next buffer
+vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
+vim.keymap.set("n", "<leader>p", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
+
 -- Tab operations
 -- vim.keymap.set("n", "<leader>ta", "<CMD>$tabnew<CR>", { desc = "New tab" })
 -- vim.keymap.set("n", "<leader>tc", "<CMD>tabclose<CR>", { desc = "Close current tab" })
