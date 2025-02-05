@@ -124,6 +124,9 @@ vim.keymap.set("n", "<leader>ch", "<CMD>nohl<CR>", { desc = "Clear search highli
 -- Insert functions
 vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
 
+-- Open terminal in horizontal split view
+vim.keymap.set("n", "<leader>1", "<CMD>split<CR><CMD>terminal<CR>a", { desc = "Open terminal" })
+
 -- Commands
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking text",
