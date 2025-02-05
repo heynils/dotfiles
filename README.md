@@ -1,16 +1,16 @@
 # dotfiles
 Dotfiles and configurations.  
 
-# zsh
+### zsh
 `sudo apt install zsh`  
 
-# neovim
+### neovim
 `sudo apt install neovim`
 
-# bat
+### bat
 `sudo apt install bat`
 
-# oh-my-zsh
+### oh-my-zsh
 install oh-my-zsh  
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`  
 
@@ -18,26 +18,25 @@ download some plugins
 `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`    
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`  
 
-# starship
+### starship
 install starship  
 `curl -sS https://starship.rs/install.sh | sh`  
 
-# zoxide
+### zoxide
 install zoxide   
 `curl -sS https://webinstall.dev/zoxide | bash`  
 
-# tree
+### tree
 `sudo apt-get install tree`
 
-# delta
+### delta
 `sudo apt install git-delta`
 
-# exa
+### exa
 `sudo apt install exa`
 
-# gh cli
-# wezterm
+### gh cli
+### wezterm
 
-# windows terminal
-# NerdFonts
+### NerdFonts
 
