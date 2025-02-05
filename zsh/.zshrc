@@ -55,5 +55,5 @@ eval "$(starship init zsh)"
 
 export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/local/bin/nvim
+export VISUAL=/usr/bin/local/nvim

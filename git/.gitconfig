@@ -1,4 +1,7 @@
 [user]
+    name = Nils Heyman
+    email = nils.heyman@gmail.com
+    username = heynils
 
 [init]
     defaultBranch = main
@@ -8,19 +11,20 @@
 
 [core]
     pager = delta
+    editor = nvim
 
 [interactive]
     diffFilter = delta --color-only
 
 [delta]
     navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    light = false      # set to true if you're in a terminal w/ a light background color
 
 [merge]
-	conflictstyle = merge
+     conflictstyle = merge
 
 [diff]
     colorMoved = default
 
 [push]
-	default = current
+    default = current
