@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$HOME/.cargo/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
