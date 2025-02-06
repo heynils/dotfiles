@@ -62,10 +62,10 @@ vim.g.maplocalleader = " "
 -- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
-vim.api.nvim_del_keymap('n', 'grr')
-vim.api.nvim_del_keymap('n', 'gri')
-vim.api.nvim_del_keymap('n', 'grn')
-vim.api.nvim_del_keymap('n', 'gra')
+-- vim.api.nvim_del_keymap('n', 'grr')
+-- vim.api.nvim_del_keymap('n', 'gri')
+-- vim.api.nvim_del_keymap('n', 'grn')
+-- vim.api.nvim_del_keymap('n', 'gra')
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
