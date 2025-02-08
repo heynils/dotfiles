@@ -10,8 +10,6 @@ config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 config.audible_bell = 'Disabled'
 
-config.window_decorations = 'NONE'
-
 config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=false
 warn_about_missing_glyphs=false
