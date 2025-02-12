@@ -9,7 +9,6 @@ return {
             }
         },
         config = function()
-
             local actions = require('telescope.actions')
             require('telescope').setup({
                 defaults = {
@@ -40,13 +39,19 @@ return {
                 },
                 pickers = {
                     find_files = {
-                        hidden = true
+                        hidden = true,
+                        theme = "ivy",
                     },
                     live_grep = {
-                        additional_args = function(_) return { "--hidden" } end
+                        additional_args = function(_) return { "--hidden" } end,
+                        theme = "ivy",
+                    },
+                    buffers = {
+                        theme = "ivy",
                     },
                     lsp_references = {
-                        show_line = false
+                        show_line = false,
+                        theme = "ivy",
                     }
                 }
             }
@@ -61,6 +66,11 @@ return {
             -- vim.keymap.set("n", "<leader>s", builtin.treesitter, { desc = "Treesiter symbols" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
+            vim.keymap.set("n", "<leader>en", function()
+                builtin.find_files {
+                    cwd = vim.fn.stdpath('config')
+                }
+            end)
         end
     }
 }
