@@ -15,6 +15,8 @@ return {
                     mappings = {
                         i = {
                             ["<esc>"] = actions.close,
+                            ["<Tab>"] = actions.move_selection_next,
+                            ["<S-Tab>"] = actions.move_selection_previous,
                         },
                     },
                 },
@@ -51,6 +53,9 @@ return {
                     },
                     lsp_references = {
                         show_line = false,
+                        theme = "ivy",
+                    },
+                    diagnostics = {
                         theme = "ivy",
                     }
                 }

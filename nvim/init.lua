@@ -115,8 +115,18 @@ vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" 
 vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
 
 -- Tab operations
--- vim.keymap.set("n", "<leader>ta", "<CMD>$tabnew<CR>", { desc = "New tab" })
--- vim.keymap.set("n", "<leader>tc", "<CMD>tabclose<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<leader>2", "<CMD>$tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>3", "<CMD>tabclose<CR>", { desc = "Close current tab" })
+
+-- vim.keymap.set("n", "<C-TAB>", "gt", { desc = "Next tab" })
+-- vim.keymap.set("n", "<C-S-TAB>", "gT", { desc = "Prev tab" })
+
+vim.keymap.set("n", "<C-1>", "1gt", { desc = "Tab 1" })
+vim.keymap.set("n", "<C-2>", "2gt", { desc = "Tab 2" })
+vim.keymap.set("n", "<C-3>", "3gt", { desc = "Tab 3" })
+vim.keymap.set("n", "<C-4>", "4gt", { desc = "Tab 4" })
+vim.keymap.set("n", "<C-5>", "5gt", { desc = "Tab 5" })
+vim.keymap.set("n", "<C-6>", "6gt", { desc = "Tab 6" })
 
 -- Clear highlights
 vim.keymap.set("n", "<leader>ch", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
