@@ -9,6 +9,7 @@ config.font_size = 11
 config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 config.audible_bell = 'Disabled'
+config.warn_about_missing_glyphs = false
 
 config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=false

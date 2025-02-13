@@ -19,6 +19,9 @@ return {
                             ["<S-Tab>"] = actions.move_selection_previous,
                         },
                     },
+                    prompt_prefix = "🔍 ",
+                    selection_caret = "",
+                    -- selection_caret = "🡪 ",
                 },
 
             })
@@ -76,6 +79,8 @@ return {
                     cwd = vim.fn.stdpath('config')
                 }
             end)
+
+            vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#2a2b3c", fg = "#cdd6f4" }) -- Change selection color
         end
     }
 }
