@@ -38,7 +38,8 @@ install zoxide
 ### gh cli
 ### wezterm
 ### fzf
-### neovim
+### jless
+### lazygit
 
 ### NerdFonts
 

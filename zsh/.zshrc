@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 
 #Git
-alias gs='git status -s'
+alias gs='git status'
 alias gc='git checkout'
 alias gp='git pull'
 alias gpo='git push origin'
