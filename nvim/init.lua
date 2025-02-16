@@ -62,10 +62,10 @@ vim.g.maplocalleader = " "
 -- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
--- vim.api.nvim_del_keymap('n', 'grr')
--- vim.api.nvim_del_keymap('n', 'gri')
--- vim.api.nvim_del_keymap('n', 'grn')
--- vim.api.nvim_del_keymap('n', 'gra')
+vim.api.nvim_del_keymap('n', 'grr')
+vim.api.nvim_del_keymap('n', 'gri')
+vim.api.nvim_del_keymap('n', 'grn')
+vim.api.nvim_del_keymap('n', 'gra')
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
@@ -104,7 +104,7 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
 -- Close current buffer
 vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current buffer" })
--- Close current window 
+-- Close current window
 vim.keymap.set("n", "<leader>w", "<CMD>close<CR>", { desc = "Close current window" })
 
 -- Close floating (help) buffer
@@ -135,7 +135,35 @@ vim.keymap.set("n", "<leader>ch", "<CMD>nohl<CR>", { desc = "Clear search highli
 vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
 
 -- Open terminal in horizontal split view
-vim.keymap.set("n", "<leader>1", "<CMD>split<CR><CMD>terminal<CR>a", { desc = "Open terminal" })
+-- vim.keymap.set("n", "<leader>1", ":botright | split | resize 12 |terminal<CR>a", { desc = "Open terminal" })
+vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
+
+local term_buf = nil  -- Store terminal buffer globally
+
+function OpenBottomTerminal()
+    -- Check if the stored buffer is still valid
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+        -- Check if the terminal buffer is already in a window
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_get_buf(win) == term_buf then
+                -- Switch to that window and enter insert mode
+                vim.api.nvim_set_current_win(win)
+                vim.cmd("startinsert")
+                return
+            end
+        end
+        -- If the terminal exists but is not in a window, open it in a new split
+        vim.cmd("split | resize 12")
+        vim.api.nvim_win_set_buf(0, term_buf)
+        vim.cmd("startinsert")
+        return
+    end
+
+    -- Open a new terminal if no existing one is found
+    vim.cmd("split | resize 12 | terminal")
+    term_buf = vim.api.nvim_get_current_buf() -- Store the buffer ID
+    vim.cmd("startinsert")
+end
 
 -- Commands
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -20,7 +20,6 @@ return {
                         },
                     },
                     prompt_prefix = "🔍 ",
-                    selection_caret = "",
                     -- selection_caret = "🡪 ",
                 },
 
@@ -35,7 +34,7 @@ return {
                         "node_modules/",
                         "bin/",
                         "obj/",
-                    }
+                    },
                 },
                 extensions = {
                     ["ui-select"] = {
