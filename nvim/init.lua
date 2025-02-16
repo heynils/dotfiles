@@ -129,7 +129,7 @@ vim.keymap.set("n", "<C-5>", "5gt", { desc = "Tab 5" })
 vim.keymap.set("n", "<C-6>", "6gt", { desc = "Tab 6" })
 
 -- Clear highlights
-vim.keymap.set("n", "<leader>ch", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
 
 -- Insert functions
 vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
