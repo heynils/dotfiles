@@ -53,7 +53,7 @@ return {
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
                 -- map("<C-s>", vim.lsp.buf.signature_help, "Signature help")
-                map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+                map("<leader>rn", ":IncRename ", "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("==", function() vim.lsp.buf.format { async = true } end, "Format code")
             end
