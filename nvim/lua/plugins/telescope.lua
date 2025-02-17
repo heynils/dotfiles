@@ -59,6 +59,9 @@ return {
                     },
                     diagnostics = {
                         theme = "ivy",
+                    },
+                    current_buffer_fuzzy_find = {
+                        theme = "ivy",
                     }
                 }
             }
@@ -78,6 +81,7 @@ return {
                     cwd = vim.fn.stdpath('config')
                 }
             end)
+            vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
 
             vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#2a2b3c", fg = "#cdd6f4" }) -- Change selection color
         end
