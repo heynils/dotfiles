@@ -24,11 +24,15 @@ return {
                         "bin",
                         "obj"
                     },
-                    dotfiles = false,
+                    dotfiles = true,
                 },
                 view = {
-                    signcolumn = "no"
-                }
+                    signcolumn = "no",
+                    adaptive_size = true,
+                },
+                update_focused_file = {
+                    update_cwd = true,
+                },
             }
         end
     },
