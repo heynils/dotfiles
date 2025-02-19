@@ -34,6 +34,7 @@ return {
                         "node_modules/",
                         "bin/",
                         "obj/",
+                        "env/",
                     },
                 },
                 extensions = {
@@ -53,8 +54,7 @@ return {
                     buffers = {
                         theme = "ivy",
                     },
-                    lsp_references = {
-                        show_line = false,
+                    references = {
                         theme = "ivy",
                     },
                     diagnostics = {

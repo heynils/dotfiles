@@ -22,6 +22,11 @@ config.window_padding = {
     bottom = 0,
 }
 
+  config.keys = {
+    { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+    { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
+}
+
 -- For arrow in top bar
 wezterm.on('update-status', function(window)
   local SOLID_LEFT_ARROW = utf8.char(0xe0b2)

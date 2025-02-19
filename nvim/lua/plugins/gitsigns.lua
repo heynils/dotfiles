@@ -20,10 +20,11 @@ return {
                     vim.keymap.set('n', '<space>ht', gs.toggle_current_line_blame,
                         { desc = "[H]istory [T]oggle blame", buffer = bufnr })
 
-                    vim.keymap.set('n', '<leader>hp', gs.preview_hunk)
-                    vim.keymap.set('n', '<leader>hr', gs.reset_hunk)
-                    vim.keymap.set('n', '<leader>hs', gs.stage_hunk)
-                    vim.keymap.set('n', '<leader>hd', gs.diffthis)
+                    vim.keymap.set('n', '<leader>hp', gs.preview_hunk, { desc = "Preview hunk"})
+                    vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { desc = "Reset hunk"})
+                    vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { desc = "Stage hunk"})
+                    vim.keymap.set('n', '<leader>hu', gs.undo_stage_hunk, { desc = "Undo stage hunk"})
+                    vim.keymap.set('n', '<leader>hd', gs.diffthis, { desc = "Diff hunk"})
 
                     -- Navigation
                     vim.keymap.set('n', ']c', function()

@@ -10,7 +10,7 @@ vim.o.incsearch = true
 vim.o.laststatus = 2
 vim.o.mouse = "a"
 vim.o.number = true
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 vim.o.scrolloff = 10
 vim.o.shiftwidth = 4
 vim.o.shortmess = "IF"
@@ -66,6 +66,10 @@ vim.api.nvim_del_keymap('n', 'grr')
 vim.api.nvim_del_keymap('n', 'gri')
 vim.api.nvim_del_keymap('n', 'grn')
 vim.api.nvim_del_keymap('n', 'gra')
+
+vim.api.nvim_del_keymap('n','<C-W>d')
+vim.api.nvim_del_keymap('n','<C-W><C-D>')
+
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
@@ -115,11 +119,11 @@ vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" 
 vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
 
 -- Tab operations
-vim.keymap.set("n", "<leader>2", "<CMD>$tabnew<CR>", { desc = "New tab" })
-vim.keymap.set("n", "<leader>3", "<CMD>tabclose<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<C-T>", "<CMD>$tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<C-W>", "<CMD>tabclose<CR>", { desc = "Close current tab" })
 
--- vim.keymap.set("n", "<C-TAB>", "gt", { desc = "Next tab" })
--- vim.keymap.set("n", "<C-S-TAB>", "gT", { desc = "Prev tab" })
+vim.keymap.set("n", "<C-TAB>", "gt", { desc = "Next tab" })
+vim.keymap.set("n", "<C-S-TAB>", "gT", { desc = "Prev tab" })
 
 vim.keymap.set("n", "<C-1>", "1gt", { desc = "Tab 1" })
 vim.keymap.set("n", "<C-2>", "2gt", { desc = "Tab 2" })
@@ -194,5 +198,4 @@ vim.opt.rtp:prepend(lazy_path)
 
 require("lazy").setup("plugins")
 require("dapui").setup()
-
-require("statusline")
+require("lualine").setup()
