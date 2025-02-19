@@ -27,8 +27,9 @@ return {
                 }
             })
 
-            vim.keymap.set("n", "gn", vim.diagnostic.goto_next)
-            vim.keymap.set("n", "gN", vim.diagnostic.goto_prev)
+
+            vim.keymap.set("n", "gn", function() vim.diagnostic.jump({count = 1, float = true}) end)
+            vim.keymap.set("n", "gN", function() vim.diagnostic.jump({count = -1, float = true}) end)
             vim.keymap.set("n", "gC", vim.diagnostic.open_float)
             vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
