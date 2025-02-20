@@ -14,6 +14,8 @@ config.warn_about_missing_glyphs = false
 config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar=false
 warn_about_missing_glyphs=false
+config.window_decorations = "RESIZE"
+config.enable_tab_bar = false
 
 config.window_padding = {
     left = 0,
@@ -39,8 +41,7 @@ wezterm.on('update-status', function(window)
     { Text = SOLID_LEFT_ARROW },
     -- Then we draw our text
     { Background = { Color = color_scheme.background } },
-    { Foreground = { Color = color_scheme.foreground
- } },
+    { Foreground = { Color = color_scheme.foreground } },
     { Text = ' ' .. wezterm.hostname() .. ' ' },
   }))
 end)
