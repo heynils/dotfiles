@@ -40,7 +40,6 @@ return {
 
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
                 map("gd", function()
-                    -- require('omnisharp_extended').telescope_lsp_definition({ jump_type = "vsplit" })
                     require('omnisharp_extended').telescope_lsp_definition()
                 end, "[G]oto [D]efinition")
                 map("gi", function()
@@ -54,7 +53,7 @@ return {
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
                 -- map("<C-s>", vim.lsp.buf.signature_help, "Signature help")
-                map("<leader>rn", ":IncRename ", "[R]e[n]ame")
+                map("<F2>", ":IncRename ", "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("==", function() vim.lsp.buf.format { async = true } end, "Format code")
             end

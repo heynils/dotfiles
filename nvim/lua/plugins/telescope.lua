@@ -70,8 +70,14 @@ return {
             telescope.load_extension("fzf")
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Find files" })
-            vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Live grep" })
+            vim.keymap.set("n", "<leader>f", function()
+                builtin.find_files { cwd = "/home/nhey/git/", desc = "Find files in git repos" }
+            end)
+            vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Find files in cwd" })
+            vim.keymap.set("n", "<leader>g", function()
+                builtin.live_grep { cwd = "/home/nhey/git/", desc = "Live grep in git repos" }
+            end)
+            vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep in cwd" })
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
             -- vim.keymap.set("n", "<leader>s", builtin.treesitter, { desc = "Treesiter symbols" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
