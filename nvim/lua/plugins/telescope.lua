@@ -51,10 +51,10 @@ return {
                         additional_args = function(_) return { "--hidden" } end,
                         theme = "ivy",
                     },
-                    buffers = {
+                    oldfiles = {
                         theme = "ivy",
                     },
-                    references = {
+                    buffers = {
                         theme = "ivy",
                     },
                     diagnostics = {
@@ -88,6 +88,7 @@ return {
                 }
             end)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
+            vim.keymap.set("n", "<leader>of", builtin.oldfiles, { desc = "[O]ld [F]iles" })
 
             vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#2a2b3c", fg = "#cdd6f4" })
             vim.api.nvim_set_hl(0, "TelescopeMatching", { bg = "#2a2b3c", fg = "#ffa500" })
