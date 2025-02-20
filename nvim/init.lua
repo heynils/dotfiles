@@ -139,11 +139,8 @@ vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search hig
 vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
 
 -- Open terminal in horizontal split view
--- vim.keymap.set("n", "<leader>1", ":botright | split | resize 12 |terminal<CR>a", { desc = "Open terminal" })
 vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
-
 local term_buf = nil  -- Store terminal buffer globally
-
 function OpenBottomTerminal()
     -- Check if the stored buffer is still valid
     if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
@@ -193,6 +190,15 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
         os.exit(1)
     end
 end
+
+-- Open NvimTree on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argc() == 0 then
+      require("nvim-tree.api").tree.open()
+    end
+  end,
+})
 
 vim.opt.rtp:prepend(lazy_path)
 
