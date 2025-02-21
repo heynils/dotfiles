@@ -16,7 +16,9 @@ return {
                         i = {
                             ["<esc>"] = actions.close,
                             ["<Tab>"] = actions.move_selection_next,
+                            ["<C-j>"] = actions.move_selection_next,
                             ["<S-Tab>"] = actions.move_selection_previous,
+                            ["<C-k>"] = actions.move_selection_previous,
                         },
                     },
                     prompt_prefix = "🔍 ",
