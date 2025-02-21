@@ -191,14 +191,16 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
     end
 end
 
--- Open NvimTree on startup
+-- Open NvimTree and old files on startup
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     if vim.fn.argc() == 0 then
       require("nvim-tree.api").tree.open()
+      require("telescope.builtin").oldfiles()
     end
   end,
 })
+
 
 vim.opt.rtp:prepend(lazy_path)
 
