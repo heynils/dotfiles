@@ -53,6 +53,7 @@ return {
                     require('omnisharp_extended').telescope_lsp_references(themes.get_ivy({ excludeDefinition = true }))
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
+                map("<F1>", vim.lsp.buf.hover, "Hover Documentation")
                 -- map("<C-s>", vim.lsp.buf.signature_help, "Signature help")
                 map("<F2>", ":IncRename ", "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")

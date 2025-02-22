@@ -70,6 +70,9 @@ vim.api.nvim_del_keymap('n', 'gra')
 vim.api.nvim_del_keymap('n','<C-W>d')
 vim.api.nvim_del_keymap('n','<C-W><C-D>')
 
+-- Disable F1 opening help
+vim.api.nvim_set_keymap('n', '<F1>', '<Nop>', { noremap = true, silent = true })
+
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
@@ -117,6 +120,9 @@ vim.keymap.set("n", "<ESC>", "<CMD>fclose<CR>", { desc = "Close floating buffer"
 -- Next buffer
 vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
+
+vim.api.nvim_set_keymap('n', '<M-Right>', '<C-i>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<M-Left>', '<C-o>', { noremap = true, silent = true })
 
 -- Tab operations
 vim.keymap.set("n", "<C-T>", "<CMD>$tabnew<CR>", { desc = "New tab" })
