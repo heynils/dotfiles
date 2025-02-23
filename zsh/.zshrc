@@ -57,3 +57,6 @@ export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR=/usr/local/bin/nvim
 export VISUAL=/usr/bin/local/nvim
+
+# Start in git/
+cd ~/git/

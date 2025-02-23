@@ -79,9 +79,8 @@ return {
             vim.keymap.set("n", "<leader>g", function()
                 builtin.live_grep { cwd = "/home/nhey/git/", desc = "Live grep in git repos" }
             end)
-            vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep in cwd" })
+            vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep in starting directory" })
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
-            -- vim.keymap.set("n", "<leader>s", builtin.treesitter, { desc = "Treesiter symbols" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
             vim.keymap.set("n", "<leader>en", function()
@@ -91,6 +90,42 @@ return {
             end)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
             vim.keymap.set("n", "<leader>of", builtin.oldfiles, { desc = "[O]ld [F]iles" })
+
+            -- Grep in the root of the Git repo based on current buffer
+            vim.keymap.set('n', '<leader>g', function()
+                -- Get the directory of the current file
+                local current_file = vim.api.nvim_buf_get_name(0)
+                local current_dir = vim.fn.fnamemodify(current_file, ':h')
+
+                -- Find the Git root from the current file's directory
+                local git_root = vim.fn.systemlist("git -C " ..
+                    vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
+
+                if vim.v.shell_error == 0 then
+                    builtin.live_grep({ search_dirs = { git_root } })
+                else
+                    builtin.live_grep({ search_dirs = { git_root } })
+                    print("Not in a Git repository for the current file!")
+                end
+            end, { noremap = true, silent = true })
+
+            -- Find files in the root of the Git repo based on current buffer
+            vim.keymap.set('n', '<leader>f', function()
+                -- Get the directory of the current file
+                local current_file = vim.api.nvim_buf_get_name(0)
+                local current_dir = vim.fn.fnamemodify(current_file, ':h')
+
+                -- Find the Git root for that directory
+                local git_root = vim.fn.systemlist("git -C " ..
+                vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
+
+                if vim.v.shell_error == 0 then
+                    -- Search for files starting from the Git root
+                    builtin.find_files()
+                else
+                    print("Not in a Git repository for the current file!")
+                end
+            end, { noremap = true, silent = true })
 
             vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#2a2b3c", fg = "#cdd6f4" })
             vim.api.nvim_set_hl(0, "TelescopeMatching", { bg = "#2a2b3c", fg = "#ffa500" })
