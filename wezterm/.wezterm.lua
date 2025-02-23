@@ -24,26 +24,35 @@ config.window_padding = {
     bottom = 0,
 }
 
-  config.keys = {
-    { key = "Tab", mods = "CTRL", action = wezterm.action.DisableDefaultAssignment },
+config.keys = {
+    { key = "Tab", mods = "CTRL",       action = wezterm.action.DisableDefaultAssignment },
     { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment }
+}
+
+-- copy on select
+config.mouse_bindings = {
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "NONE",
+        action = wezterm.action { CompleteSelectionOrOpenLinkAtMouseCursor = "Clipboard" },
+    },
 }
 
 -- For arrow in top bar
 wezterm.on('update-status', function(window)
-  local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-  local color_scheme = window:effective_config().resolved_palette
+    local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+    local color_scheme = window:effective_config().resolved_palette
 
-  window:set_right_status(wezterm.format({
-    -- First, we draw the arrow...
-    { Background = { Color = 'none' } },
-    { Foreground = { Color = color_scheme.background } },
-    { Text = SOLID_LEFT_ARROW },
-    -- Then we draw our text
-    { Background = { Color = color_scheme.background } },
-    { Foreground = { Color = color_scheme.foreground } },
-    { Text = ' ' .. wezterm.hostname() .. ' ' },
-  }))
+    window:set_right_status(wezterm.format({
+        -- First, we draw the arrow...
+        { Background = { Color = 'none' } },
+        { Foreground = { Color = color_scheme.background } },
+        { Text = SOLID_LEFT_ARROW },
+        -- Then we draw our text
+        { Background = { Color = color_scheme.background } },
+        { Foreground = { Color = color_scheme.foreground } },
+        { Text = ' ' .. wezterm.hostname() .. ' ' },
+    }))
 end)
 
 return config
