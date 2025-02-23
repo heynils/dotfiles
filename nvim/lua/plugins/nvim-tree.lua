@@ -24,7 +24,8 @@ return {
                         "bin",
                         "obj"
                     },
-                    dotfiles = true,
+                    dotfiles = false,
+                    git_ignored = true,
                 },
                 view = {
                     signcolumn = "no",
