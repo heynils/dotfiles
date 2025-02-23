@@ -44,7 +44,7 @@ return {
                     require('omnisharp_extended').telescope_lsp_definition()
                 end, "[G]oto [D]efinition")
                 map("gi", function()
-                    require('omnisharp_extended').telescope_lsp_implementation()
+                    require('omnisharp_extended').telescope_lsp_implementation(themes.get_ivy({ excludeDefinition = true }))
                 end, "[G]oto [I]mplementation")
                 map("<leader>D", function()
                     require('omnisharp_extended').telescope_lsp_type_definition()
