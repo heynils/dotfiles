@@ -113,9 +113,10 @@ return {
                 vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
 
                 if vim.v.shell_error == 0 then
-                    builtin.find_files()
-                    print('Cannot find files from terminal')
+                    -- Search for files starting from the Git root
+                    builtin.find_files({ cwd = git_root })
                 else
+                    builtin.find_files()
                 end
             end, { noremap = true, silent = true })
 
