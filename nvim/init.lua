@@ -74,9 +74,6 @@ vim.api.nvim_del_keymap('n','<C-W><C-D>')
 vim.api.nvim_set_keymap('n', '<F1>', '<Nop>', { noremap = true, silent = true })
 -- Ctrl + backspace to delete word
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
-
--- Change in tag
-vim.api.nvim_set_keymap('n', 'cit', 'ci>', { noremap = true, silent = true })
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
@@ -212,9 +209,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 
--- wqa to close terminals
+-- WQA to close terminals
 vim.api.nvim_create_user_command('WQA', function()
-  vim.cmd('silent! bdelete | qall!')
+  vim.cmd('wa | silent! bdelete | qall!')
 end, {})
 
 vim.opt.rtp:prepend(lazy_path)

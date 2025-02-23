@@ -72,13 +72,7 @@ return {
             telescope.load_extension("fzf")
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>f", function()
-                builtin.find_files { cwd = "/home/nhey/git/", desc = "Find files in git repos" }
-            end)
             vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Find files in cwd" })
-            vim.keymap.set("n", "<leader>g", function()
-                builtin.live_grep { cwd = "/home/nhey/git/", desc = "Live grep in git repos" }
-            end)
             vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep in starting directory" })
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
@@ -104,8 +98,7 @@ return {
                 if vim.v.shell_error == 0 then
                     builtin.live_grep({ search_dirs = { git_root } })
                 else
-                    builtin.live_grep({ search_dirs = { git_root } })
-                    print("Not in a Git repository for the current file!")
+                    builtin.live_grep()
                 end
             end, { noremap = true, silent = true })
 
@@ -120,10 +113,9 @@ return {
                 vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
 
                 if vim.v.shell_error == 0 then
-                    -- Search for files starting from the Git root
                     builtin.find_files()
+                    print('Cannot find files from terminal')
                 else
-                    print("Not in a Git repository for the current file!")
                 end
             end, { noremap = true, silent = true })
 
