@@ -7,10 +7,10 @@ return {
 
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-              opts = opts or {}
-              opts.border = opts.border or 'single'
-              opts.max_width= opts.max_width or 80
-              return orig_util_open_floating_preview(contents, syntax, opts, ...)
+                opts = opts or {}
+                opts.border = opts.border or 'single'
+                opts.max_width = opts.max_width or 80
+                return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
 
             vim.diagnostic.config({
@@ -28,8 +28,8 @@ return {
             })
 
 
-            vim.keymap.set("n", "gn", function() vim.diagnostic.jump({count = 1, float = true}) end)
-            vim.keymap.set("n", "gN", function() vim.diagnostic.jump({count = -1, float = true}) end)
+            vim.keymap.set("n", "gn", function() vim.diagnostic.jump({ count = 1, float = true }) end)
+            vim.keymap.set("n", "gN", function() vim.diagnostic.jump({ count = -1, float = true }) end)
             vim.keymap.set("n", "gC", vim.diagnostic.open_float)
             vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
@@ -91,8 +91,12 @@ return {
             lsp_config.cssls.setup { on_attach = on_attach }
 
             lsp_config.omnisharp.setup {
+                on_attach = on_attach,
                 handlers = {
                     ["textDocument/definition"] = require('omnisharp_extended').handler,
+                    ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+                    ["textDocument/references"] = require('omnisharp_extended').references_handler,
+                    ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
                 },
                 cmd = {
                     "omnisharp",
@@ -100,7 +104,6 @@ return {
                     "--hostPID",
                     tostring(vim.fn.getpid())
                 },
-                on_attach = on_attach
             }
         end
     },
