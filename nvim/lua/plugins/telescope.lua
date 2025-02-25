@@ -83,7 +83,7 @@ return {
                 }
             end)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
-            vim.keymap.set("n", "<leader>of", builtin.oldfiles, { desc = "[O]ld [F]iles" })
+            vim.keymap.set("n", "<leader>o", builtin.oldfiles, { desc = "[O]ld [F]iles" })
 
             -- Grep in the root of the Git repo based on current buffer
             vim.keymap.set('n', '<leader>g', function()

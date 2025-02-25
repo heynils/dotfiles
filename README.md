@@ -2,13 +2,13 @@
 Dotfiles and configurations.
 
 ### zsh
-`sudo apt install zsh`
+`sudo apt install zsh -y`
 
 ### neovim
-`sudo apt install neovim`
+`sudo apt install neovim -y`
 
 ### bat
-`sudo apt install bat`
+`sudo apt install bat -y`
 
 ### oh-my-zsh
 install oh-my-zsh
@@ -27,15 +27,17 @@ install zoxide
 `curl -sS https://webinstall.dev/zoxide | bash`
 
 ### tree
-`sudo apt-get install tree`
+`sudo apt-get install tree -y`
 
 ### delta
-`sudo apt install git-delta`
+`sudo apt install git-delta -y`
 
 ### exa
-`sudo apt install exa`
+`sudo apt install exa -y`
 
 ### gh cli
+`sudo apt install gh -y`
+
 ### wezterm
 ### fzf
 ### jless
@@ -43,3 +45,5 @@ install zoxide
 
 ### NerdFonts
 
+### Ubuntu
+`gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
