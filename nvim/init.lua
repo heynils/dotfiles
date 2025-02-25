@@ -67,8 +67,8 @@ vim.api.nvim_del_keymap('n', 'gri')
 vim.api.nvim_del_keymap('n', 'grn')
 vim.api.nvim_del_keymap('n', 'gra')
 
-vim.api.nvim_del_keymap('n','<C-W>d')
-vim.api.nvim_del_keymap('n','<C-W><C-D>')
+vim.api.nvim_del_keymap('n', '<C-W>d')
+vim.api.nvim_del_keymap('n', '<C-W><C-D>')
 
 -- Disable F1 opening help
 vim.api.nvim_set_keymap('n', '<F1>', '<Nop>', { noremap = true, silent = true })
@@ -90,6 +90,12 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- Navigation in insert mode
+vim.keymap.set("i", "<C-j>", "<Down>")
+vim.keymap.set("i", "<C-k>", "<Up>")
+vim.keymap.set("i", "<C-l>", "<Right>")
+vim.keymap.set("i", "<C-h>", "<Left>")
 
 -- Keep cursor in the middle of screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -129,16 +135,6 @@ vim.api.nvim_set_keymap('n', '<M-Left>', '<C-o>', { noremap = true, silent = tru
 vim.keymap.set("n", "<C-T>", "<CMD>$tabnew<CR>", { desc = "New tab" })
 vim.keymap.set("n", "<C-W>", "<CMD>tabclose<CR>", { desc = "Close current tab" })
 
-vim.keymap.set("n", "<C-TAB>", "gt", { desc = "Next tab" })
-vim.keymap.set("n", "<C-S-TAB>", "gT", { desc = "Prev tab" })
-
-vim.keymap.set("n", "<C-1>", "1gt", { desc = "Tab 1" })
-vim.keymap.set("n", "<C-2>", "2gt", { desc = "Tab 2" })
-vim.keymap.set("n", "<C-3>", "3gt", { desc = "Tab 3" })
-vim.keymap.set("n", "<C-4>", "4gt", { desc = "Tab 4" })
-vim.keymap.set("n", "<C-5>", "5gt", { desc = "Tab 5" })
-vim.keymap.set("n", "<C-6>", "6gt", { desc = "Tab 6" })
-
 -- Clear highlights
 vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
 
@@ -147,7 +143,7 @@ vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" }
 
 -- Open terminal in horizontal split view
 vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
-local term_buf = nil  -- Store terminal buffer globally
+local term_buf = nil -- Store terminal buffer globally
 function OpenBottomTerminal()
     -- Check if the stored buffer is still valid
     if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
@@ -200,21 +196,33 @@ end
 
 -- Open NvimTree and old files on startup
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 0 then
-      require("telescope.builtin").oldfiles()
-    end
-  end,
+    callback = function()
+        if vim.fn.argc() == 0 then
+            require("telescope.builtin").oldfiles()
+        end
+    end,
 })
-
 
 -- WQA to close terminals
 vim.api.nvim_create_user_command('WQA', function()
-  vim.cmd('wa | silent! bdelete | qall!')
+    vim.cmd('wa | silent! bdelete | qall!')
 end, {})
 
 vim.opt.rtp:prepend(lazy_path)
 
 require("lazy").setup("plugins")
+
+-- harpoon setup
+local harpoon = require("harpoon")
+harpoon:setup()
+vim.keymap.set("n", "<leader>H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<C-a>", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-S-TAB>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-TAB>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
+
 require("dapui").setup()
 require("lualine").setup()
