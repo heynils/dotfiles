@@ -1,8 +1,8 @@
 # dotfiles
-Dotfiles and configurations.  
+Dotfiles and configurations.
 
 ### zsh
-`sudo apt install zsh`  
+`sudo apt install zsh`
 
 ### neovim
 `sudo apt install neovim`
@@ -11,20 +11,20 @@ Dotfiles and configurations.
 `sudo apt install bat`
 
 ### oh-my-zsh
-install oh-my-zsh  
-`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`  
+install oh-my-zsh
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-download some plugins  
-`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`    
-`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`  
+download some plugins
+`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
 ### starship
-install starship  
-`curl -sS https://starship.rs/install.sh | sh`  
+install starship
+`curl -sS https://starship.rs/install.sh | sh`
 
 ### zoxide
-install zoxide   
-`curl -sS https://webinstall.dev/zoxide | bash`  
+install zoxide
+`curl -sS https://webinstall.dev/zoxide | bash`
 
 ### tree
 `sudo apt-get install tree`
