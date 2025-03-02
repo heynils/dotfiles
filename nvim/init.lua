@@ -157,14 +157,14 @@ function OpenBottomTerminal()
             end
         end
         -- If the terminal exists but is not in a window, open it in a new split
-        vim.cmd("split | resize 12")
+        vim.cmd("split | resize 24")
         vim.api.nvim_win_set_buf(0, term_buf)
         vim.cmd("startinsert")
         return
     end
 
     -- Open a new terminal if no existing one is found
-    vim.cmd("split | resize 12 | terminal")
+    vim.cmd("split | resize 24 | terminal")
     term_buf = vim.api.nvim_get_current_buf() -- Store the buffer ID
     vim.cmd("startinsert")
 end
@@ -209,16 +209,35 @@ vim.api.nvim_create_user_command('WQA', function()
 end, {})
 
 vim.opt.rtp:prepend(lazy_path)
-
 require("lazy").setup("plugins")
 
 -- harpoon setup
 local harpoon = require("harpoon")
 harpoon:setup()
+-- Cycle through file list
+local function harpoon_next()
+    local list = harpoon:list()
+    list._index = list._index + 1
+    if list._index > #list.items then
+        list._index = 1
+    end
+    list:select(list._index)
+end
+
+local function harpoon_prev()
+    local list = harpoon:list()
+    list._index = list._index - 1
+    if list._index < 1 then
+        list._index = #list.items
+    end
+    list:select(list._index)
+end
+
 vim.keymap.set("n", "<leader>H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 vim.keymap.set("n", "<C-a>", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-S-TAB>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-TAB>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<C-S-a>", function() harpoon:list():remove() end)
+vim.keymap.set("n", "<C-S-TAB>", function() harpoon_prev() end)
+vim.keymap.set("n", "<C-TAB>", function() harpoon_next() end)
 vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
