@@ -234,8 +234,8 @@ local function harpoon_prev()
 end
 
 vim.keymap.set("n", "<leader>H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<C-a>", function() harpoon:list():add() end)
-vim.keymap.set("n", "<C-S-a>", function() harpoon:list():remove() end)
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>x", function() harpoon:list():remove() end)
 vim.keymap.set("n", "<C-S-TAB>", function() harpoon_prev() end)
 vim.keymap.set("n", "<C-TAB>", function() harpoon_next() end)
 vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
