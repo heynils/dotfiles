@@ -89,6 +89,7 @@ return {
             lsp_config.ts_ls.setup { on_attach = on_attach }
             lsp_config.html.setup { on_attach = on_attach }
             lsp_config.cssls.setup { on_attach = on_attach }
+            lsp_config.rust_analyzer.setup { on_attach = on_attach }
 
             lsp_config.omnisharp.setup {
                 on_attach = on_attach,
