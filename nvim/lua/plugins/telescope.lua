@@ -46,24 +46,10 @@ return {
                 pickers = {
                     find_files = {
                         hidden = true,
-                        theme = "ivy",
                     },
                     live_grep = {
                         additional_args = function(_) return { "--hidden" } end,
-                        theme = "ivy",
                     },
-                    oldfiles = {
-                        theme = "ivy",
-                    },
-                    buffers = {
-                        theme = "ivy",
-                    },
-                    diagnostics = {
-                        theme = "ivy",
-                    },
-                    current_buffer_fuzzy_find = {
-                        theme = "ivy",
-                    }
                 }
             }
 
@@ -71,14 +57,17 @@ return {
             telescope.load_extension("fzf")
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Find files in cwd" })
-            vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep in starting directory" })
+            local git_folder = vim.fn.expand("~/git/")
+            vim.keymap.set("n", "<leader>F", function() builtin.find_files({ cwd = git_folder, prompt_title = 'Files in all repos' }) end)
+            vim.keymap.set("n", "<leader>G",function() builtin.live_grep(
+                { cwd = git_folder, prompt_title = 'Search in all repos' }) end)
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
             vim.keymap.set("n", "<leader>en", function()
                 builtin.find_files {
-                    cwd = vim.fn.stdpath('config')
+                    cwd = vim.fn.stdpath('config'),
+                    prompt_title = 'Files in Neovim config'
                 }
             end)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
@@ -95,7 +84,7 @@ return {
                     vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
 
                 if vim.v.shell_error == 0 then
-                    builtin.live_grep({ search_dirs = { git_root } })
+                    builtin.live_grep({ search_dirs = { git_root }, prompt_title = 'Search in repo'})
                 else
                     builtin.live_grep()
                 end
@@ -109,11 +98,11 @@ return {
 
                 -- Find the Git root for that directory
                 local git_root = vim.fn.systemlist("git -C " ..
-                vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
+                    vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
 
                 if vim.v.shell_error == 0 then
                     -- Search for files starting from the Git root
-                    builtin.find_files({ cwd = git_root })
+                    builtin.find_files({ cwd = git_root, prompt_title = 'Files in repo' })
                 else
                     builtin.find_files()
                 end

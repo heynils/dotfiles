@@ -1,4 +1,5 @@
 -- Options
+vim.o.autochdir = true
 vim.o.autoindent = true
 vim.o.backup = false
 vim.o.breakindent = true
