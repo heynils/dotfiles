@@ -35,9 +35,6 @@ alias vi='nvim'
 #python
 alias python='python3'
 
-#dotnet
-alias db='dotnet build'
-
 #lazygit
 alias lg='lazygit'
 
