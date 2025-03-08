@@ -64,6 +64,7 @@ return {
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
+            vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP document [S]ymbols" })
             vim.keymap.set("n", "<leader>en", function()
                 builtin.find_files {
                     cwd = vim.fn.stdpath('config'),
