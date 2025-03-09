@@ -21,7 +21,12 @@ return {
                             ["<C-k>"] = actions.move_selection_previous,
                         },
                     },
+                    sorting_strategy = "ascending",
                     prompt_prefix = "🔍 ",
+                    layout_config = {
+                        height = 0.6,
+                        prompt_position = 'top',
+                    },
                 },
 
             })
@@ -58,11 +63,14 @@ return {
 
             local builtin = require("telescope.builtin")
             local git_folder = vim.fn.expand("~/git/")
-            vim.keymap.set("n", "<leader>F", function() builtin.find_files({ cwd = git_folder, prompt_title = 'Files in all repos' }) end)
-            vim.keymap.set("n", "<leader>G",function() builtin.live_grep(
-                { cwd = git_folder, prompt_title = 'Search in all repos' }) end)
+            vim.keymap.set("n", "<leader>F",
+                function() builtin.find_files({ cwd = git_folder, prompt_title = 'Files in all repos' }) end)
+            vim.keymap.set("n", "<leader>G", function()
+                builtin.live_grep(
+                    { cwd = git_folder, prompt_title = 'Search in all repos' })
+            end)
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
-            vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
+            vim.keymap.set("n", "<leader>d", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
             vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP document [S]ymbols" })
             vim.keymap.set("n", "<leader>en", function()
@@ -85,7 +93,7 @@ return {
                     vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
 
                 if vim.v.shell_error == 0 then
-                    builtin.live_grep({ search_dirs = { git_root }, prompt_title = 'Search in repo'})
+                    builtin.live_grep({ search_dirs = { git_root }, prompt_title = 'Search in repo' })
                 else
                     builtin.live_grep()
                 end
