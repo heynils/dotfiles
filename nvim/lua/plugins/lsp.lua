@@ -34,7 +34,6 @@ return {
             vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Set LOC list" })
 
             local on_attach = function(_, bufnr)
-                local themes = require('telescope.themes')
                 local map = function(keys, func, desc)
                     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
                 end
@@ -44,13 +43,13 @@ return {
                     require('omnisharp_extended').telescope_lsp_definition()
                 end, "[G]oto [D]efinition")
                 map("gi", function()
-                    require('omnisharp_extended').telescope_lsp_implementation(themes.get_ivy({ excludeDefinition = true }))
+                    require('omnisharp_extended').telescope_lsp_implementation({ excludeDefinition = true })
                 end, "[G]oto [I]mplementation")
                 map("<leader>D", function()
                     require('omnisharp_extended').telescope_lsp_type_definition()
                 end, "Type [D]efinition")
                 map("gr", function()
-                    require('omnisharp_extended').telescope_lsp_references(themes.get_ivy({ excludeDefinition = true }))
+                    require('omnisharp_extended').telescope_lsp_references({ excludeDefinition = true })
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
                 map("<F1>", vim.lsp.buf.hover, "Hover Documentation")
