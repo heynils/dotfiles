@@ -42,6 +42,7 @@ install zoxide
 ### fzf
 ### jless
 ### lazygit
+### lazydocker
 
 ### NerdFonts
 
