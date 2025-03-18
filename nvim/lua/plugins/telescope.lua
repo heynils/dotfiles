@@ -24,7 +24,7 @@ return {
                     sorting_strategy = "ascending",
                     prompt_prefix = "🔍 ",
                     layout_config = {
-                        height = 0.6,
+                        height = 0.7,
                         prompt_position = 'top',
                     },
                 },

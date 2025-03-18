@@ -73,8 +73,6 @@ vim.api.nvim_del_keymap('n', '<C-W><C-D>')
 
 -- Disable F1 opening help
 vim.api.nvim_set_keymap('n', '<F1>', '<Nop>', { noremap = true, silent = true })
--- Ctrl + backspace to delete word
-vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
