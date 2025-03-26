@@ -111,7 +111,7 @@ return {
                     select = false
                 },
                 experimental = {
-                    ghost_text = false,
+                    ghost_text = true,
                 }
             }
         end
