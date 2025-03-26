@@ -11,6 +11,7 @@ vim.o.incsearch = true
 vim.o.laststatus = 2
 vim.o.mouse = "a"
 vim.o.number = true
+vim.o.pumblend = 10
 vim.o.relativenumber = true
 vim.o.scrolloff = 10
 vim.o.shiftwidth = 4
@@ -193,14 +194,6 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
     end
 end
 
--- Open NvimTree and old files on startup
--- vim.api.nvim_create_autocmd("VimEnter", {
---     callback = function()
---         if vim.fn.argc() == 0 then
---             require("telescope.builtin").oldfiles()
---         end
---     end,
--- })
 
 -- WQA to close terminals
 vim.api.nvim_create_user_command('WQA', function()
