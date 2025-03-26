@@ -194,6 +194,14 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
     end
 end
 
+-- Open telescope old files on startup 
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if vim.fn.argc() == 0 then
+            require("telescope.builtin").oldfiles()
+        end
+    end,
+})
 
 -- WQA to close terminals
 vim.api.nvim_create_user_command('WQA', function()
