@@ -133,7 +133,6 @@ vim.api.nvim_set_keymap('n', '<M-Left>', '<C-o>', { noremap = true, silent = tru
 
 -- Tab operations
 vim.keymap.set("n", "<C-T>", "<CMD>$tabnew<CR>", { desc = "New tab" })
-vim.keymap.set("n", "<C-W>", "<CMD>tabclose<CR>", { desc = "Close current tab" })
 
 -- Clear highlights
 vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
@@ -195,13 +194,13 @@ if not (vim.uv or vim.loop).fs_stat(lazy_path) then
 end
 
 -- Open telescope old files on startup 
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        if vim.fn.argc() == 0 then
-            require("telescope.builtin").oldfiles()
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         if vim.fn.argc() == 0 then
+--             require("telescope.builtin").oldfiles()
+--         end
+--     end,
+-- })
 
 -- WQA to close terminals
 vim.api.nvim_create_user_command('WQA', function()
