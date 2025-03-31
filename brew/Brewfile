@@ -1,0 +1,17 @@
+# CLI tools
+brew "git"
+brew "zsh"
+brew "neovim"
+brew "git-delta"
+brew "gh"
+brew "wezterm"
+brew "jless"
+brew "lazygit"
+brew "lazydocker"
+brew "xh"
+
+# GUI apps
+cask "google-chrome"
+cask "spotify"
+cask "slack"
+
