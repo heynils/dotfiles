@@ -1,6 +1,6 @@
 # CLI tools
-brew "git"
-brew "zsh"
+# brew "git"
+# brew "zsh"
 brew "neovim"
 brew "git-delta"
 brew "gh"
@@ -9,9 +9,19 @@ brew "jless"
 brew "lazygit"
 brew "lazydocker"
 brew "xh"
+brew "font-jetbrains-mono"
+brew "fzf"
+brew "starship"
+brew "zoxide"
+brew "lua"
 
 # GUI apps
 cask "google-chrome"
 cask "spotify"
 cask "slack"
+cask "microsoft-teams"
+cask "bitwarden"
+cask "rider"
+cask "dbeaver-community"
+cask "visual-studio-code"
 
