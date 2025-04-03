@@ -24,5 +24,6 @@ cask "microsoft-teams"
 cask "bitwarden"
 cask "rider"
 cask "dbeaver-community"
+cask "dotnet-sdk"
 cask "visual-studio-code"
 
