@@ -64,6 +64,8 @@ vim.g.maplocalleader = " "
 -- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
+
 vim.api.nvim_del_keymap('n', 'grr')
 vim.api.nvim_del_keymap('n', 'gri')
 vim.api.nvim_del_keymap('n', 'grn')
@@ -77,13 +79,11 @@ vim.api.nvim_set_keymap('n', '<F1>', '<Nop>', { noremap = true, silent = true })
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
+-- Remap jj to Esc
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+
 -- Yank to end of line
 vim.keymap.set("n", "Y", "y$")
-
--- System clipboard
-vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.keymap.set({ "n", "v", "x" }, "<leader>Y", '"+yy', { noremap = true, silent = true, desc = "Yank line to clipboard" })
-vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -139,6 +139,31 @@ vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search hig
 
 -- Insert functions
 vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
+
+-- Fix copy and paste
+vim.o.clipboard = "unnamedplus"
+local function paste()
+  return {
+    vim.fn.split(vim.fn.getreg(""), "\n"),
+    vim.fn.getregtype(""),
+  }
+end
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = paste,
+    ["*"] = paste,
+  },
+}
+-- System clipboard
+vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>Y", '"+yy', { noremap = true, silent = true, desc = "Yank line to clipboard" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 
 -- Open terminal in horizontal split view
 vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
