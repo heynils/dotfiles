@@ -1,6 +1,4 @@
 # CLI tools
-# brew "git"
-# brew "zsh"
 brew "neovim"
 brew "git-delta"
 brew "gh"
@@ -14,7 +12,6 @@ brew "font-jetbrains-mono"
 brew "fzf"
 brew "starship"
 brew "zoxide"
-brew "lua"
 
 # GUI apps
 cask "google-chrome"
