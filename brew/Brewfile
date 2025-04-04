@@ -12,6 +12,7 @@ brew "font-jetbrains-mono"
 brew "fzf"
 brew "starship"
 brew "zoxide"
+brew "node"
 
 # GUI apps
 cask "google-chrome"
