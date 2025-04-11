@@ -31,7 +31,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Prevent LSP from overwriting treesitter color settings
-vim.highlight.priorities.semantic_tokens = 95
+vim.hl.priorities.semantic_tokens = 95
 
 -- Disable some builtin vim plugins
 vim.g.loaded_2html_plugin = 1
