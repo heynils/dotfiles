@@ -27,24 +27,32 @@ config.window_padding = {
 config.keys = {
     { key = "Tab", mods = "CTRL",       action = wezterm.action.DisableDefaultAssignment },
     { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
-    { key = "1", mods = "CTRL",       action = wezterm.action.ActivateTab(0) },
-    { key = "2", mods = "CTRL",       action = wezterm.action.ActivateTab(1) },
-    { key = "3", mods = "CTRL",       action = wezterm.action.ActivateTab(2) },
-     -- Move focus between panes using Ctrl + Shift + H/J/K/L
-    {key="h", mods="ALT", action=wezterm.action.ActivatePaneDirection("Left")},
-    {key="j", mods="ALT", action=wezterm.action.ActivatePaneDirection("Down")},
-    {key="k", mods="ALT", action=wezterm.action.ActivatePaneDirection("Up")},
-    {key="l", mods="ALT", action=wezterm.action.ActivatePaneDirection("Right")},
+    { key = "1",   mods = "CTRL",       action = wezterm.action.ActivateTab(0) },
+    { key = "2",   mods = "CTRL",       action = wezterm.action.ActivateTab(1) },
+    { key = "3",   mods = "CTRL",       action = wezterm.action.ActivateTab(2) },
+    -- Move focus between panes using Ctrl + Shift + H/J/K/L
+    { key = "h",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "l",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Right") },
     -- Split pane vertically with Ctrl + Shift + |
-    {key="\\", mods="ALT", action=wezterm.action.SplitPane{
-      direction="Right",
-      size={Percent=50}
-    }},
+    {
+        key = "\\",
+        mods = "ALT",
+        action = wezterm.action.SplitPane {
+            direction = "Right",
+            size = { Percent = 50 }
+        }
+    },
     -- Split pane horizontally with Ctrl + Shift + -
-    {key="-", mods="ALT", action=wezterm.action.SplitPane{
-      direction="Down",
-      size={Percent=50}
-    }},
+    {
+        key = "-",
+        mods = "ALT",
+        action = wezterm.action.SplitPane {
+            direction = "Down",
+            size = { Percent = 50 }
+        }
+    },
 }
 
 -- copy on select
