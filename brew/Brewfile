@@ -1,3 +1,6 @@
+# brew bundle
+#
+#
 # CLI tools
 brew "neovim"
 brew "git-delta"
@@ -15,12 +18,12 @@ brew "zoxide"
 brew "node"
 
 # GUI apps
+# cask "slack"
+# cask "rider"
 cask "google-chrome"
 cask "spotify"
-# cask "slack"
 cask "microsoft-teams"
 cask "bitwarden"
-# cask "rider"
 cask "dbeaver-community"
 cask "dotnet-sdk"
 cask "visual-studio-code"
