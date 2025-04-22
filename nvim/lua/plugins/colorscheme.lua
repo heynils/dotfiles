@@ -8,7 +8,10 @@ return {
             styles = {
                 sidebars = "transparent",
                 floats = "transparent",
-            }
+            },
+            integrations = {
+                cmp = true,
+            },
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)

@@ -267,5 +267,8 @@ vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 
+vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
+vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
+
 require("dapui").setup()
 require("lualine").setup()

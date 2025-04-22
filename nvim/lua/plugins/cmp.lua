@@ -112,7 +112,18 @@ return {
                 },
                 experimental = {
                     ghost_text = true,
+                },
+                window = {
+                    completion = {
+                        border = "rounded",
+                    },
+                    documentation = {
+                        border = "rounded",
+                        winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
+                        scollbar = false,
+                    }
                 }
+
             }
         end
     }
