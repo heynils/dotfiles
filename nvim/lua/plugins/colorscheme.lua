@@ -11,6 +11,7 @@ return {
             },
             integrations = {
                 cmp = true,
+                gitsigns = true,
             },
         },
         config = function(_, opts)
