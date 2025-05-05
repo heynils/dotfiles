@@ -64,7 +64,7 @@ vim.g.maplocalleader = " "
 -- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
-vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
+vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true, silent = true })
 
 vim.api.nvim_del_keymap('n', 'grr')
 vim.api.nvim_del_keymap('n', 'gri')
@@ -95,7 +95,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("i", "<C-j>", "<Down>")
 vim.keymap.set("i", "<C-k>", "<Up>")
 vim.keymap.set("i", "<C-l>", "<Right>")
-vim.keymap.set("i", "<C-h>", "<Left>")
+-- vim.keymap.set("i", "<C-h>", "<Left>")
 
 -- Keep cursor in the middle of screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
