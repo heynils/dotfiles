@@ -27,8 +27,18 @@ alias gd='git diff'
 alias ga.='git add .'
 
 #Other
-alias cat='batcat'
-alias ls='exa -la'
+#!/bin/bash
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias cat='bat'
+    alias ls='eza -la'
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias cat='batcat'
+    alias ls='exa -la'
+else
+    echo "Unknown OS: $OSTYPE"
+fi
+
 alias vim='nvim'
 alias vi='nvim'
 
