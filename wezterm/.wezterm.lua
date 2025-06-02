@@ -5,7 +5,7 @@ local config = {}
 config.initial_cols = 125
 config.initial_rows = 60
 config.font = wezterm.font 'JetBrains Mono'
-config.font_size = 11
+config.font_size = 13
 config.window_background_opacity = 0.95
 config.window_close_confirmation = 'NeverPrompt'
 config.audible_bell = 'Disabled'
@@ -15,7 +15,7 @@ config.color_scheme = 'Tokyo Night'
 config.enable_scroll_bar = false
 warn_about_missing_glyphs = false
 config.window_decorations = "RESIZE | TITLE"
-config.enable_tab_bar = false
+config.enable_tab_bar = true
 
 config.window_padding = {
     left = 0,
@@ -25,8 +25,8 @@ config.window_padding = {
 }
 
 config.keys = {
-    { key = "Tab", mods = "CTRL",       action = wezterm.action.DisableDefaultAssignment },
-    { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.DisableDefaultAssignment },
+    { key = "Tab", mods = "CTRL",       action = wezterm.action.ActivateTabRelative(1) },
+    { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
     { key = "1",   mods = "CTRL",       action = wezterm.action.ActivateTab(0) },
     { key = "2",   mods = "CTRL",       action = wezterm.action.ActivateTab(1) },
     { key = "3",   mods = "CTRL",       action = wezterm.action.ActivateTab(2) },
