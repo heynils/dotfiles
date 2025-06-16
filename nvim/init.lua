@@ -193,6 +193,32 @@ function OpenBottomTerminal()
     vim.cmd("startinsert")
 end
 
+vim.keymap.set("n", "<leader>2", ":lua OpenBottomTerminalSplit()<CR>")
+function OpenBottomTerminalSplit()
+    -- Check if the stored buffer is still valid
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+        -- Check if the terminal buffer is already in a window
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+            if vim.api.nvim_win_get_buf(win) == term_buf then
+                -- Switch to that window and enter insert mode
+                vim.api.nvim_set_current_win(win)
+                vim.cmd("startinsert")
+                return
+            end
+        end
+        -- If the terminal exists but is not in a window, open it in a new split
+        vim.cmd("split | resize 24")
+        vim.api.nvim_win_set_buf(0, term_buf)
+        vim.cmd("vsplit | terminal ")
+        return
+    end
+
+    -- Open a new terminal if no existing one is found
+    vim.cmd("split | resize 24 | terminal")
+    vim.cmd("vsplit | terminal ")
+    term_buf = vim.api.nvim_get_current_buf() -- Store the buffer ID
+end
+
 -- Commands
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking text",
