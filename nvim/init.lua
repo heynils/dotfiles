@@ -252,38 +252,6 @@ end, {})
 vim.opt.rtp:prepend(lazy_path)
 require("lazy").setup("plugins")
 
--- harpoon setup
-local harpoon = require("harpoon")
-harpoon:setup()
--- Cycle through file list
-local function harpoon_next()
-    local list = harpoon:list()
-    list._index = list._index + 1
-    if list._index > #list.items then
-        list._index = 1
-    end
-    list:select(list._index)
-end
-
-local function harpoon_prev()
-    local list = harpoon:list()
-    list._index = list._index - 1
-    if list._index < 1 then
-        list._index = #list.items
-    end
-    list:select(list._index)
-end
-
-vim.keymap.set("n", "<leader>H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>x", function() harpoon:list():remove() end)
-vim.keymap.set("n", "<S-TAB>", function() harpoon_prev() end)
-vim.keymap.set("n", "<TAB>", function() harpoon_next() end)
-vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
-
 vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
 vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
 
