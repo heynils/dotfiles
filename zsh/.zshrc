@@ -1,4 +1,5 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$HOME/.cargo/bin:/Users/heynils/Library/Python/3.9/bin:$PATH
+export DOTNET_ROOT=$HOME/.dotnet
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -60,13 +61,12 @@ eval "$(zoxide init zsh)"
 #starship prompt
 eval "$(starship init zsh)"
 
-export DOTNET_ROOT=/usr/lib/dotnet/
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export EDITOR=/usr/local/bin/nvim
 export VISUAL=/usr/bin/local/nvim
 
 # Start in git/
-cd ~/git/
+# cd ~/git/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
