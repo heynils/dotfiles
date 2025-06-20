@@ -55,6 +55,10 @@ return {
                     live_grep = {
                         additional_args = function(_) return { "--hidden" } end,
                     },
+                    lsp_references = {
+                        path_display = { "truncate" },
+                        show_line = false,
+                    },
                 }
             }
 
