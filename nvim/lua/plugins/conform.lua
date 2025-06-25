@@ -25,6 +25,11 @@ return {
                         args = { "--indent-type", "Spaces", "--indent-width", "4", "-" },
                         stdin = true,
                     },
+                    csharpier = {
+                        command = "/Users/heynils/.dotnet/tools/csharpier",
+                        args = { "format" },
+                        stdin = true,
+                    },
                 },
             })
         end,

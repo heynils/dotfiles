@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         config = function()
-            require("nvim-treesitter.configs").setup {
+            require("nvim-treesitter.configs").setup({
                 ensure_installed = {
                     "bash",
                     "c",
@@ -32,22 +32,23 @@ return {
                     "sql",
                     "toml",
                     "typescript",
+                    "tsx",
                     "vim",
                     "vimdoc",
-                    "yaml"
+                    "yaml",
                 },
                 sync_install = false,
                 ignore_install = {},
                 highlight = {
                     enable = true,
                     disable = {},
-                    additional_vim_regex_highlighting = false
+                    additional_vim_regex_highlighting = false,
                 },
                 indent = {
-                    enable = true
-                }
-            }
+                    enable = true,
+                },
+            })
         end,
-        cmd = "TSUpdate"
-    }
+        cmd = "TSUpdate",
+    },
 }
