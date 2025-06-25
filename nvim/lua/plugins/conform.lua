@@ -12,6 +12,7 @@ return {
                     cs = { "csharpier" },
                     lua = { "stylua" },
                     css = { "prettier" },
+                    bicep = { "bicep" },
                 },
 
                 format_on_save = {
@@ -28,6 +29,11 @@ return {
                     csharpier = {
                         command = "/Users/heynils/.dotnet/tools/csharpier",
                         args = { "format" },
+                        stdin = true,
+                    },
+                    bicep = {
+                        command = "bicep",
+                        args = { "format", "--stdout" },
                         stdin = true,
                     },
                 },
