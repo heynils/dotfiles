@@ -3,10 +3,10 @@ return {
     dependencies = {
         { "nvim-tree/nvim-web-devicons", lazy = true }
     },
+    lazy = true,
     opts = {
-        scope = "git", -- also try out "git_branch"
+        scope = "git",
     },
-    event = { "BufReadPost", "BufNewFile" },
     cmd = "Grapple",
     keys = {
         { "<leader>a", "<cmd>Grapple toggle<cr>", desc = "Grapple toggle tag" },

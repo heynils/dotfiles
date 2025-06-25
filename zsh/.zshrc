@@ -66,7 +66,7 @@ export EDITOR=/usr/local/bin/nvim
 export VISUAL=/usr/bin/local/nvim
 
 # Start in git/
-# cd ~/git/
+cd ~/git/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
