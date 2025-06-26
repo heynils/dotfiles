@@ -9,7 +9,7 @@ return {
                     javascriptreact = { "prettierd", "prettier", stop_after_first = true },
                     typescript = { "prettierd", "prettier", stop_after_first = true },
                     typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-                    cs = { "csharpier" },
+                    -- cs = { "csharpier" },
                     lua = { "stylua" },
                     css = { "prettier" },
                     bicep = { "bicep" },
