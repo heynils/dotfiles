@@ -12,6 +12,7 @@ return {
                     -- cs = { "csharpier" },
                     lua = { "stylua" },
                     css = { "prettier" },
+                    yaml = { "prettier" },
                     bicep = { "bicep" },
                 },
 
