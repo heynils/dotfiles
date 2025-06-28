@@ -13,17 +13,14 @@ return {
         },
         config = function()
             local cmp = require("cmp")
-            cmp.event:on(
-                "confirm_done",
-                require "nvim-autopairs.completion.cmp".on_confirm_done()
-            )
+            cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
             local luasnip = require("luasnip")
             require("luasnip/loaders/from_vscode").lazy_load()
 
             local check_backspace = function()
-                local col = vim.fn.col "." - 1
-                return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+                local col = vim.fn.col(".") - 1
+                return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
             end
 
             local kind_icons = {
@@ -54,13 +51,13 @@ return {
                 TypeParameter = "󰅲",
             }
 
-            cmp.setup {
+            cmp.setup({
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
-                    end
+                    end,
                 },
-                mapping = cmp.mapping.preset.insert {
+                mapping = cmp.mapping.preset.insert({
                     ["<C-k>"] = cmp.mapping.select_prev_item(),
                     ["<C-j>"] = cmp.mapping.select_next_item(),
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -68,7 +65,7 @@ return {
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<C-y>"] = cmp.config.disable,
                     ["<C-e>"] = cmp.mapping.abort(),
-                    ["<CR>"] = cmp.mapping.confirm { select = true },
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     -- ["<Tab>"] = cmp.mapping(function(fallback)
                     --     if cmp.visible() then
                     --         cmp.select_next_item()
@@ -91,27 +88,27 @@ return {
                     --         fallback()
                     --     end
                     -- end, { "i", "s" }),
-                },
+                }),
                 formatting = {
                     fields = { "abbr", "kind" },
                     format = function(_, vim_item)
-                        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+                        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
                         return vim_item
-                    end
+                    end,
                 },
-                sources = cmp.config.sources {
+                sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "nvim_lua" },
                     { name = "luasnip" },
                     { name = "buffer" },
-                    { name = "path" }
-                },
+                    { name = "path" },
+                }),
                 confirm_opts = {
                     behavior = cmp.ConfirmBehavior.Replace,
-                    select = false
+                    select = false,
                 },
                 experimental = {
-                    ghost_text = true,
+                    ghost_text = false,
                 },
                 window = {
                     completion = {
@@ -121,10 +118,9 @@ return {
                         border = "rounded",
                         winhighlight = "Normal:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
                         scollbar = false,
-                    }
-                }
-
-            }
-        end
-    }
+                    },
+                },
+            })
+        end,
+    },
 }
