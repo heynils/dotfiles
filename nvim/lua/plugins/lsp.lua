@@ -90,7 +90,6 @@ return {
             })
 
             lsp_config.pyright.setup({ on_attach = on_attach })
-            lsp_config.tsserver.setup({ on_attach = on_attach })
             local builtin = require("telescope.builtin")
             lsp_config.ts_ls.setup({
                 on_attach = function(_, bufnr)
