@@ -28,6 +28,9 @@ return {
             vim.keymap.set("n", "<F9>", function()
                 dap.toggle_breakpoint()
             end)
+            vim.keymap.set("n", "<F12>", function()
+                dap.clear_breakpoints()
+            end)
             vim.keymap.set("n", "<F5>", function()
                 dap.continue()
             end)
@@ -37,10 +40,9 @@ return {
             vim.keymap.set("n", "<F11>", function()
                 dap.step_into()
             end)
-            vim.keymap.set("n", "<S-F11>", function()
+            vim.keymap.set("n", "<F7>", function()
                 dap.step_out()
             end)
-
             require("nvim-dap-virtual-text").setup()
         end,
     },
