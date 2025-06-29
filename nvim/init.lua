@@ -13,7 +13,7 @@ vim.o.mouse = "a"
 vim.o.number = true
 vim.o.pumblend = 10
 vim.o.relativenumber = true
-vim.o.scrolloff = 10
+vim.o.scrolloff = 0
 vim.o.shiftwidth = 4
 vim.o.shortmess = "IF"
 vim.o.showmatch = true
@@ -235,6 +235,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
+---@diagnostic disable-next-line: undefined-field
 if not (vim.uv or vim.loop).fs_stat(lazy_path) then
     local lazy_repo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazy_repo, lazy_path })
@@ -262,3 +263,10 @@ vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70
 
 require("dapui").setup()
 require("lualine").setup()
+
+vim.g.dotnet_show_project_file = false
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "cs",
+    command = "compiler dotnet",
+})
+vim.keymap.set("n", "<F6>", "<CMD>make<CR>", { desc = "Build dotnet" })
