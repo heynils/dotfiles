@@ -1,5 +1,6 @@
 return {
-    "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()
         require("dapui").setup()
         local dap = require("dap")
@@ -12,6 +13,5 @@ return {
         dap.listeners.after.event_exited["dapui_config"] = function()
             require("dapui").close()
         end
-    end
-
+    end,
 }

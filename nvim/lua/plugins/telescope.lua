@@ -93,6 +93,26 @@ return {
             telescope.load_extension("ui-select")
             telescope.load_extension("fzf")
 
+            require("neoclip").setup({
+                enable_persistent_history = true,
+                keys = {
+                    telescope = {
+                        i = {
+                            paste = "<CR>",
+                        },
+                        n = {
+                            paste = "<CR>",
+                        },
+                    },
+                },
+            })
+
+            telescope.load_extension("neoclip")
+
+            vim.keymap.set("n", "<leader>nc", function()
+                require("telescope").extensions.neoclip.default()
+            end, { desc = "Open Neoclip with Telescope" })
+
             local builtin = require("telescope.builtin")
             local git_folder = vim.fn.expand("~/git/")
             vim.keymap.set("n", "<leader>F", function()
