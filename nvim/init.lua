@@ -270,3 +270,4 @@ vim.api.nvim_create_autocmd("FileType", {
     command = "compiler dotnet",
 })
 vim.keymap.set("n", "<F6>", "<CMD>make<CR>", { desc = "Build dotnet" })
+vim.api.nvim_set_hl(0, "TelescopePathItalic", { italic = true, fg = "#bbbbbb" })

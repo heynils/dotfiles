@@ -27,6 +27,27 @@ return {
                         height = 0.7,
                         prompt_position = "top",
                     },
+                    -- Format path as "file.txt (path\to\file\)"
+
+                    path_display = function(_, path)
+                        local tail = require("telescope.utils").path_tail(path)
+
+                        local home = vim.loop.os_homedir()
+                        if path:sub(1, #home) == home then
+                            path = "~" .. path:sub(#home + 1)
+                        end
+
+                        local display = string.format("%s %s", tail, path)
+
+                        -- Highlight the path portion (after " - ")
+                        local tail_len = #tail
+                        local sep_len = 1
+                        local path_start = tail_len + sep_len
+                        local path_end = #display
+
+                        return display, { { { path_start, path_end }, "TelescopePathItalic" } }
+                    end,
+                    preview = { hide_one_startup = false },
                 },
             })
 
@@ -62,6 +83,9 @@ return {
                     lsp_references = {
                         path_display = { "smart" },
                         show_line = true,
+                    },
+                    resume_picker = {
+                        path_display = { "tail" },
                     },
                 },
             })
