@@ -1,17 +1,17 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = {}
 
 config.initial_cols = 125
 config.initial_rows = 60
-config.font = wezterm.font 'JetBrains Mono'
+config.font = wezterm.font("JetBrains Mono")
 config.font_size = 13
 config.window_background_opacity = 0.95
-config.window_close_confirmation = 'NeverPrompt'
-config.audible_bell = 'Disabled'
+config.window_close_confirmation = "NeverPrompt"
+config.audible_bell = "Disabled"
 config.warn_about_missing_glyphs = false
 
-config.color_scheme = 'Tokyo Night'
+config.color_scheme = "Tokyo Night"
 config.enable_scroll_bar = false
 warn_about_missing_glyphs = false
 config.window_decorations = "RESIZE | TITLE"
@@ -25,33 +25,33 @@ config.window_padding = {
 }
 
 config.keys = {
-    { key = "Tab", mods = "CTRL",       action = wezterm.action.ActivateTabRelative(1) },
+    { key = "Tab", mods = "CTRL", action = wezterm.action.ActivateTabRelative(1) },
     { key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
-    { key = "1",   mods = "CTRL",       action = wezterm.action.ActivateTab(0) },
-    { key = "2",   mods = "CTRL",       action = wezterm.action.ActivateTab(1) },
-    { key = "3",   mods = "CTRL",       action = wezterm.action.ActivateTab(2) },
+    { key = "1", mods = "CTRL", action = wezterm.action.ActivateTab(0) },
+    { key = "2", mods = "CTRL", action = wezterm.action.ActivateTab(1) },
+    { key = "3", mods = "CTRL", action = wezterm.action.ActivateTab(2) },
     -- Move focus between panes using Ctrl + Shift + H/J/K/L
-    { key = "h",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "l",   mods = "ALT",        action = wezterm.action.ActivatePaneDirection("Right") },
+    { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
     -- Split pane vertically with Ctrl + Shift + |
     {
         key = "\\",
         mods = "ALT",
-        action = wezterm.action.SplitPane {
+        action = wezterm.action.SplitPane({
             direction = "Right",
-            size = { Percent = 50 }
-        }
+            size = { Percent = 50 },
+        }),
     },
     -- Split pane horizontally with Ctrl + Shift + -
     {
         key = "-",
         mods = "ALT",
-        action = wezterm.action.SplitPane {
+        action = wezterm.action.SplitPane({
             direction = "Down",
-            size = { Percent = 50 }
-        }
+            size = { Percent = 50 },
+        }),
     },
 }
 
@@ -60,7 +60,7 @@ config.mouse_bindings = {
     {
         event = { Up = { streak = 1, button = "Left" } },
         mods = "NONE",
-        action = wezterm.action { CompleteSelectionOrOpenLinkAtMouseCursor = "Clipboard" },
+        action = wezterm.action({ CompleteSelectionOrOpenLinkAtMouseCursor = "Clipboard" }),
     },
 }
 

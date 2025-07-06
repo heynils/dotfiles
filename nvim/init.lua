@@ -26,6 +26,8 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
+vim.o.winbar = "%F"
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -87,9 +89,13 @@ vim.keymap.set("n", "Y", "y$")
 
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
 
 -- Navigation in insert mode
 vim.keymap.set("i", "<C-j>", "<Down>")
@@ -168,7 +174,7 @@ vim.keymap.set(
     '"+yy',
     { noremap = true, silent = true, desc = "Yank line to clipboard" }
 )
-vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+-- vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 
 -- Open terminal in horizontal split view
 vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
@@ -271,3 +277,38 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 vim.keymap.set("n", "<F6>", "<CMD>make<CR>", { desc = "Build dotnet" })
 vim.api.nvim_set_hl(0, "TelescopePathItalic", { italic = true, fg = "#bbbbbb" })
+vim.filetype.add({
+    extension = {
+        bicep = "bicep",
+    },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "css",
+        "html",
+        "yaml",
+        "markdown",
+    },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.expandtab = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cs", "razor" },
+    callback = function()
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.softtabstop = 4
+        vim.opt_local.expandtab = true
+    end,
+})
