@@ -56,7 +56,7 @@ return {
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
                 map("<F1>", vim.lsp.buf.hover, "Hover Documentation")
-                -- map("<C-s>", vim.lsp.buf.signature_help, "Signature help")
+                map("gH", vim.lsp.buf.signature_help, "Signature help")
                 map("<leader>rr", ":IncRename ", "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("==", function()
@@ -107,6 +107,14 @@ return {
             lsp_config.cssls.setup({ on_attach = on_attach })
             lsp_config.rust_analyzer.setup({ on_attach = on_attach })
             lsp_config.tailwindcss.setup({ on_attach = on_attach })
+            local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
+            lsp_config.bicep.setup({
+                cmd = { "dotnet", bicep_lsp_bin },
+                on_attach = on_attach,
+                filetypes = { "bicep" },
+                root_dir = lsp_config.util.root_pattern(".git", "."),
+                single_file_support = true,
+            })
 
             lsp_config.omnisharp.setup({
                 on_attach = on_attach,

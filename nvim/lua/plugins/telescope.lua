@@ -109,7 +109,7 @@ return {
 
             telescope.load_extension("neoclip")
 
-            vim.keymap.set("n", "<leader>nc", function()
+            vim.keymap.set("n", "<leader>p", function()
                 require("telescope").extensions.neoclip.default()
             end, { desc = "Open Neoclip with Telescope" })
 

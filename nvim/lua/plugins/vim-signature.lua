@@ -54,11 +54,6 @@ return {
             end
         end
 
-        -- Map <Tab> for forward cycle
-        vim.keymap.set("n", "<Tab>", function()
-            _G.cycle_marks("forward")
-        end, { noremap = true, silent = true, desc = "Cycle 'A 'B 'C forward if set" })
-
         -- Map <S-Tab> for backward cycle
         vim.keymap.set("n", "<S-Tab>", function()
             _G.cycle_marks("backward")

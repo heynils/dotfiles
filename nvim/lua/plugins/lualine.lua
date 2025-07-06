@@ -1,14 +1,14 @@
 return {
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
 
         config = function()
-            require('lualine').setup {
+            require("lualine").setup({
                 sections = {
-                    lualine_a = { 'mode' },
-                    lualine_b = { 'branch', 'diff', 'diagnostics' },
-                    lualine_c = { { 'filename', path = 2, } },
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch", "diff", "diagnostics" },
+                    lualine_c = { { "filename", path = 0 } },
                     lualine_x = {
                         {
                             function()
@@ -20,13 +20,13 @@ return {
                                 end
 
                                 return table.concat(parts, " ")
-                            end
+                            end,
                         },
-                        'encoding',
-                        'filetype'
-                    }
-                }
-            }
-        end
-    }
+                        "encoding",
+                        "filetype",
+                    },
+                },
+            })
+        end,
+    },
 }
