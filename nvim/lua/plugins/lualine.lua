@@ -8,7 +8,7 @@ return {
                 sections = {
                     lualine_a = { "mode" },
                     lualine_b = { "branch", "diff", "diagnostics" },
-                    lualine_c = { { "filename", path = 0 } },
+                    lualine_c = { "windows" },
                     lualine_x = {
                         {
                             function()
