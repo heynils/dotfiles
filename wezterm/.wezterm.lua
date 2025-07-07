@@ -31,20 +31,20 @@ config.keys = {
     { key = "2", mods = "CTRL", action = wezterm.action.ActivateTab(1) },
     { key = "3", mods = "CTRL", action = wezterm.action.ActivateTab(2) },
     -- Move focus between panes using Ctrl + Shift + H/J/K/L
-    { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
-    { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
-    { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
-    { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
-    -- Split pane vertically with Ctrl + Shift + |
+    { key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
+    { key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
+    { key = "k", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
+    { key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
+    -- Split pane vertically
     {
-        key = "\\",
+        key = "=",
         mods = "ALT",
         action = wezterm.action.SplitPane({
             direction = "Right",
             size = { Percent = 50 },
         }),
     },
-    -- Split pane horizontally with Ctrl + Shift + -
+    -- Split pane horizontally
     {
         key = "-",
         mods = "ALT",
