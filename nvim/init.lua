@@ -285,6 +285,8 @@ vim.filetype.add({
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {
+        "ts",
+        "tsx",
         "typescript",
         "typescriptreact",
         "javascript",
