@@ -14,4 +14,6 @@ return {
             require("dapui").close()
         end
     end,
+    lazy = true,
+    cmd = "DapContinue",
 }

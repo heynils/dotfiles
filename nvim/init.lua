@@ -314,3 +314,21 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = true
     end,
 })
+-- Function to generate full path winbar
+-- Highlight groups for styling
+vim.api.nvim_set_hl(0, "WinbarPath", { fg = "#c0c0c0", bold = true }) -- greyish path
+
+function _G.MyWinbar()
+    local path = "%F"
+    local modified = vim.bo.modified and " ●" or ""
+
+    return table.concat({
+        "%#WinbarPath#",
+        path,
+        modified,
+        "%#Normal#",
+    })
+end
+
+-- Set winbar to use this function
+vim.o.winbar = "%{%v:lua.MyWinbar()%}"

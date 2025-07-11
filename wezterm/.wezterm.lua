@@ -15,7 +15,7 @@ config.color_scheme = "Tokyo Night"
 config.enable_scroll_bar = false
 warn_about_missing_glyphs = false
 config.window_decorations = "RESIZE | TITLE"
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 
 config.window_padding = {
     left = 0,

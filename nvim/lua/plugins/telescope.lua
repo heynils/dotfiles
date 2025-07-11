@@ -8,6 +8,8 @@ return {
                 build = "make",
             },
         },
+        lazy = true,
+        cmd = "Telescope",
         config = function()
             local actions = require("telescope.actions")
             require("telescope").setup({

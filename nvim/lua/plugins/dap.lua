@@ -2,6 +2,7 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = { "theHamsta/nvim-dap-virtual-text" },
+        lazy = true,
         config = function()
             local dap = require("dap")
             local DEBUGGER_LOCATION = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/netcoredbg"
