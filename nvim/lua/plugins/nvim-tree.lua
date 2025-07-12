@@ -2,11 +2,11 @@ return {
     {
         "nvim-tree/nvim-tree.lua",
         keys = {
-            { "<leader>t", "<CMD>NvimTreeToggle<CR>",   desc = "NvimTree Toggle" },
+            { "<leader>t", "<CMD>NvimTreeToggle<CR>", desc = "NvimTree Toggle" },
             { "<leader>T", "<CMD>NvimTreeFindFile<CR>", desc = "NvimTree Find File" },
         },
         config = function()
-            require("nvim-tree").setup {
+            require("nvim-tree").setup({
                 sync_root_with_cwd = true,
                 renderer = {
                     special_files = {
@@ -15,14 +15,14 @@ return {
                         "Dockerfile",
                         "Makefile",
                         "README.md",
-                        "readme.md"
+                        "readme.md",
                     },
                 },
                 filters = {
                     custom = {
                         "^.git$",
                         "bin",
-                        "obj"
+                        "obj",
                     },
                     dotfiles = false,
                     git_ignored = true,
@@ -34,28 +34,28 @@ return {
                 update_focused_file = {
                     update_cwd = true,
                 },
-            }
-        end
+            })
+        end,
     },
 
     {
         "nvim-tree/nvim-web-devicons",
         lazy = true,
         config = function()
-            require("nvim-web-devicons").setup {
+            require("nvim-web-devicons").setup({
                 override_by_extension = {
                     ["csproj"] = {
                         name = "CSProj",
                         icon = "",
-                        color = "#017bcd"
+                        color = "#017bcd",
                     },
                     ["rs"] = {
                         name = "Rust",
                         icon = "",
-                        color = "#f74c00"
-                    }
-                }
-            }
-        end
+                        color = "#f74c00",
+                    },
+                },
+            })
+        end,
     },
 }

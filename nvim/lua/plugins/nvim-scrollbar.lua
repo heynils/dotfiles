@@ -8,9 +8,9 @@ return {
                     diagnostic = true,
                     handle = true,
                     gitsigns = true,
-                }
+                },
             })
         end,
         lazy = false,
-    }
+    },
 }
