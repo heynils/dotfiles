@@ -133,6 +133,12 @@ return {
                     prompt_title = "Files in Neovim config",
                 })
             end)
+            vim.keymap.set("n", "<leader>rc", function()
+                require("telescope.builtin").find_files({
+                    cwd = "/Users/heynils/git/sms",
+                    prompt_title = "Files in Customer Recycling",
+                })
+            end)
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
             vim.keymap.set("n", "<leader>o", builtin.oldfiles, { desc = "[O]ld [F]iles" })
 
