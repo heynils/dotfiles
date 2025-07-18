@@ -50,7 +50,7 @@ config.keys = {
         mods = "ALT",
         action = wezterm.action.SplitPane({
             direction = "Down",
-            size = { Percent = 50 },
+            size = { Percent = 25 },
         }),
     },
 }

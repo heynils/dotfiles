@@ -126,7 +126,7 @@ return {
             vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "List open buffers" })
             vim.keymap.set("n", "<leader>dd", builtin.diagnostics, { desc = "List diagnostics" })
             vim.keymap.set("n", "<leader>rp", builtin.resume, { desc = "[R]esume [p]icker" })
-            vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, { desc = "LSP document [S]ymbols" })
+            vim.keymap.set("n", "<leader>s", builtin.grep_string, { desc = "[S]earch for string under cursor" })
             vim.keymap.set("n", "<leader>en", function()
                 builtin.find_files({
                     cwd = vim.fn.stdpath("config"),
@@ -142,6 +142,22 @@ return {
             vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search current buffer" })
             vim.keymap.set("n", "<leader>o", builtin.oldfiles, { desc = "[O]ld [F]iles" })
 
+            -- Grep string in the root of the Git repo based on current buffer
+            vim.keymap.set("n", "<leader>s", function()
+                -- Get the directory of the current file
+                local current_file = vim.api.nvim_buf_get_name(0)
+                local current_dir = vim.fn.fnamemodify(current_file, ":h")
+
+                -- Find the Git root from the current file's directory
+                local git_root =
+                    vim.fn.systemlist("git -C " .. vim.fn.shellescape(current_dir) .. " rev-parse --show-toplevel")[1]
+
+                if vim.v.shell_error == 0 then
+                    builtin.grep_string({ search_dirs = { git_root }, prompt_title = "Search in repo" })
+                else
+                    builtin.grep_string()
+                end
+            end, { noremap = true, silent = true })
             -- Grep in the root of the Git repo based on current buffer
             vim.keymap.set("n", "<leader>g", function()
                 -- Get the directory of the current file

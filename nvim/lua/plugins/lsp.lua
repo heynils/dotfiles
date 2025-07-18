@@ -57,7 +57,6 @@ return {
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
                 map("<F1>", vim.lsp.buf.hover, "Hover Documentation")
                 map("gH", vim.lsp.buf.signature_help, "Signature help")
-                map("<leader>rr", ":IncRename ", "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("==", function()
                     vim.lsp.buf.format({ async = true })
@@ -89,7 +88,6 @@ return {
                 },
             })
 
-            lsp_config.pyright.setup({ on_attach = on_attach })
             local builtin = require("telescope.builtin")
             lsp_config.ts_ls.setup({
                 on_attach = function(_, bufnr)
@@ -105,7 +103,6 @@ return {
             })
             lsp_config.html.setup({ on_attach = on_attach })
             lsp_config.cssls.setup({ on_attach = on_attach })
-            lsp_config.rust_analyzer.setup({ on_attach = on_attach })
             lsp_config.tailwindcss.setup({ on_attach = on_attach })
             local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
             lsp_config.bicep.setup({
