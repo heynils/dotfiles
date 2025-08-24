@@ -1,3 +1,4 @@
+vim.loader.enable()
 -- Options
 vim.o.autochdir = true
 vim.o.autoindent = true
@@ -81,9 +82,6 @@ vim.api.nvim_set_keymap("n", "<F1>", "<Nop>", { noremap = true, silent = true })
 -- Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 
--- Remap jj to Esc
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
-
 -- Yank to end of line
 vim.keymap.set("n", "Y", "y$")
 
@@ -101,7 +99,7 @@ vim.keymap.set("n", "<leader>l", "<C-w>l")
 vim.keymap.set("i", "<C-j>", "<Down>")
 vim.keymap.set("i", "<C-k>", "<Up>")
 vim.keymap.set("i", "<C-l>", "<Right>")
--- vim.keymap.set("i", "<C-h>", "<Left>")
+vim.keymap.set("i", "<C-h>", "<Left>")
 
 -- Keep cursor in the middle of screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -133,12 +131,6 @@ vim.keymap.set("n", "<ESC>", "<CMD>fclose<CR>", { desc = "Close floating buffer"
 -- Next buffer
 vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
-
-vim.api.nvim_set_keymap("n", "<M-Right>", "<C-i>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-Left>", "<C-o>", { noremap = true, silent = true })
-
--- Tab operations
-vim.keymap.set("n", "<C-T>", "<CMD>$tabnew<CR>", { desc = "New tab" })
 
 -- Clear highlights
 vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
@@ -271,12 +263,6 @@ require("dapui").setup()
 require("lualine").setup()
 
 vim.g.dotnet_show_project_file = false
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "cs",
-    command = "compiler dotnet",
-})
-vim.keymap.set("n", "<F6>", "<CMD>make<CR>", { desc = "Build dotnet" })
-vim.api.nvim_set_hl(0, "TelescopePathItalic", { italic = true, fg = "#bbbbbb" })
 vim.filetype.add({
     extension = {
         bicep = "bicep",

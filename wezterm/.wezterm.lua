@@ -53,6 +53,34 @@ config.keys = {
             size = { Percent = 25 },
         }),
     },
+    -- Disable Shift+Arrows
+    {
+        key = "DownArrow",
+        mods = "SHIFT",
+        action = "Nop",
+    },
+    {
+        key = "UpArrow",
+        mods = "SHIFT",
+        action = "Nop",
+    },
+    {
+        key = "LeftArrow",
+        mods = "SHIFT",
+        action = "Nop",
+    },
+    {
+        key = "RightArrow",
+        mods = "SHIFT",
+        action = "Nop",
+    },
+    {
+        key = "1",
+        mods = "CTRL|SHIFT",
+        action = wezterm.action.ShowLauncherArgs({
+            flags = "TABS", -- or 'WORKSPACES'
+        }),
+    },
 }
 
 -- copy on select

@@ -11,6 +11,12 @@ return {
         lazy = true,
         cmd = "Telescope",
         config = function()
+            vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "none" })
+            vim.api.nvim_set_hl(0, "TelescopePathItalic", { italic = true, fg = "#bbbbbb" })
             local actions = require("telescope.actions")
             require("telescope").setup({
                 defaults = {
