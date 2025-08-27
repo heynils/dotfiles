@@ -64,6 +64,7 @@ vim.g.loaded_zipPlugin = 1
 -- Keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 -- Write buffer/Save file with Ctrl + S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 
@@ -166,61 +167,6 @@ vim.keymap.set(
     '"+yy',
     { noremap = true, silent = true, desc = "Yank line to clipboard" }
 )
--- vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
-
--- Open terminal in horizontal split view
-vim.keymap.set("n", "<leader>1", ":lua OpenBottomTerminal()<CR>")
-local term_buf = nil -- Store terminal buffer globally
-function OpenBottomTerminal()
-    -- Check if the stored buffer is still valid
-    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-        -- Check if the terminal buffer is already in a window
-        for _, win in ipairs(vim.api.nvim_list_wins()) do
-            if vim.api.nvim_win_get_buf(win) == term_buf then
-                -- Switch to that window and enter insert mode
-                vim.api.nvim_set_current_win(win)
-                vim.cmd("startinsert")
-                return
-            end
-        end
-        -- If the terminal exists but is not in a window, open it in a new split
-        vim.cmd("split | resize 24")
-        vim.api.nvim_win_set_buf(0, term_buf)
-        vim.cmd("startinsert")
-        return
-    end
-
-    -- Open a new terminal if no existing one is found
-    vim.cmd("split | resize 24 | terminal")
-    term_buf = vim.api.nvim_get_current_buf() -- Store the buffer ID
-    vim.cmd("startinsert")
-end
-
-vim.keymap.set("n", "<leader>2", ":lua OpenBottomTerminalSplit()<CR>")
-function OpenBottomTerminalSplit()
-    -- Check if the stored buffer is still valid
-    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-        -- Check if the terminal buffer is already in a window
-        for _, win in ipairs(vim.api.nvim_list_wins()) do
-            if vim.api.nvim_win_get_buf(win) == term_buf then
-                -- Switch to that window and enter insert mode
-                vim.api.nvim_set_current_win(win)
-                vim.cmd("startinsert")
-                return
-            end
-        end
-        -- If the terminal exists but is not in a window, open it in a new split
-        vim.cmd("split | resize 24")
-        vim.api.nvim_win_set_buf(0, term_buf)
-        vim.cmd("vsplit | terminal ")
-        return
-    end
-
-    -- Open a new terminal if no existing one is found
-    vim.cmd("split | resize 24 | terminal")
-    vim.cmd("vsplit | terminal ")
-    term_buf = vim.api.nvim_get_current_buf() -- Store the buffer ID
-end
 
 -- Commands
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -255,9 +201,6 @@ end, {})
 
 vim.opt.rtp:prepend(lazy_path)
 require("lazy").setup("plugins")
-
-vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
-vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
 
 require("dapui").setup()
 require("lualine").setup()
@@ -300,10 +243,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = true
     end,
 })
--- Function to generate full path winbar
 -- Highlight groups for styling
 vim.api.nvim_set_hl(0, "WinbarPath", { fg = "#c0c0c0", bold = true }) -- greyish path
+vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
+vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
 
+-- Function to generate full path winbar
 function _G.MyWinbar()
     local path = "%F"
     local modified = vim.bo.modified and " ●" or ""

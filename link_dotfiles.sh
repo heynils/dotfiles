@@ -10,5 +10,7 @@ ln -s ~/git/dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
 
 ln -s ~/git/dotfiles/git/.gitconfig ~/.gitconfig
 
+ln -s ~/git/dotfiles/tmux/.tmux.conf. ~/.tmux.conf
+
 echo "Dotfiles symlinked, restarting zsh..."
 source ~/.zshrc
