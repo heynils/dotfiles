@@ -126,9 +126,6 @@ vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current 
 -- Close current window
 vim.keymap.set("n", "<leader>w", "<CMD>close<CR>", { desc = "Close current window" })
 
--- Close floating (help) buffer
-vim.keymap.set("n", "<ESC>", "<CMD>fclose<CR>", { desc = "Close floating buffer" })
-
 -- Next buffer
 vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous buffer" })
@@ -203,7 +200,6 @@ vim.opt.rtp:prepend(lazy_path)
 require("lazy").setup("plugins")
 
 require("dapui").setup()
-require("lualine").setup()
 
 vim.g.dotnet_show_project_file = false
 vim.filetype.add({
@@ -244,7 +240,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 -- Highlight groups for styling
-vim.api.nvim_set_hl(0, "WinbarPath", { fg = "#c0c0c0", bold = true }) -- greyish path
+vim.api.nvim_set_hl(0, "WinbarPath", { fg = "#b4befe", bold = true })
 vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
 vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
 
@@ -262,4 +258,4 @@ function _G.MyWinbar()
 end
 
 -- Set winbar to use this function
-vim.o.winbar = "%{%v:lua.MyWinbar()%}"
+vim.o.winbar = "%=%{%v:lua.MyWinbar()%}%="
