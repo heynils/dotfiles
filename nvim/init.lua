@@ -243,6 +243,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_set_hl(0, "WinbarPath", { fg = "#b4befe", bold = true })
 vim.api.nvim_set_hl(0, "CmpDocumentation", { bg = "#1e1e2e", fg = "#cdd6f4" })
 vim.api.nvim_set_hl(0, "CmpDocumentationBorder", { bg = "#1e1e2e", fg = "#585b70" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- Function to generate full path winbar
 function _G.MyWinbar()
