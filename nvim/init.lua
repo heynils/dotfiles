@@ -87,13 +87,9 @@ vim.keymap.set("", "<Space>", "<Nop>")
 vim.keymap.set("n", "Y", "y$")
 
 -- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
 -- Navigation in insert mode
@@ -124,7 +120,7 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 -- Close current buffer
 vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current buffer" })
 -- Close current window
-vim.keymap.set("n", "<leader>w", "<CMD>close<CR>", { desc = "Close current window" })
+vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write buffer" })
 
 -- Next buffer
 vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
@@ -198,8 +194,6 @@ end, {})
 
 vim.opt.rtp:prepend(lazy_path)
 require("lazy").setup("plugins")
-
-require("dapui").setup()
 
 vim.g.dotnet_show_project_file = false
 vim.filetype.add({

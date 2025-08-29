@@ -101,8 +101,8 @@ return {
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 end,
             })
-            lsp_config.html.setup({ on_attach = on_attach })
-            lsp_config.cssls.setup({ on_attach = on_attach })
+            -- lsp_config.html.setup({ on_attach = on_attach })
+            -- lsp_config.cssls.setup({ on_attach = on_attach })
             -- lsp_config.tailwindcss.setup({ on_attach = on_attach })
             -- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
             -- lsp_config.bicep.setup({
