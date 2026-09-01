@@ -55,7 +55,6 @@ return {
                     require("omnisharp_extended").telescope_lsp_references({ excludeDefinition = true })
                 end, "[G]oto [R]eferences")
                 map("gh", vim.lsp.buf.hover, "Hover Documentation")
-                map("<F1>", vim.lsp.buf.hover, "Hover Documentation")
                 map("gH", vim.lsp.buf.signature_help, "Signature help")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("==", function()
@@ -63,7 +62,7 @@ return {
                 end, "Format code")
             end
 
-            lsp_config.lua_ls.setup({
+            vim.lsp.config["lua_ls"] = {
                 on_attach = on_attach,
                 settings = {
                     Lua = {
@@ -86,10 +85,11 @@ return {
                         },
                     },
                 },
-            })
+            }
+            vim.lsp.enable("lua_ls")
 
             local builtin = require("telescope.builtin")
-            lsp_config.ts_ls.setup({
+            vim.lsp.config["ts_ls"] = {
                 on_attach = function(_, bufnr)
                     -- Enable LSP-based keymaps
                     local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -100,18 +100,22 @@ return {
                     vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 end,
-            })
-            -- lsp_config.html.setup({ on_attach = on_attach })
-            -- lsp_config.cssls.setup({ on_attach = on_attach })
-            -- lsp_config.tailwindcss.setup({ on_attach = on_attach })
-            -- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
-            -- lsp_config.bicep.setup({
-            --     cmd = { "dotnet", bicep_lsp_bin },
-            --     on_attach = on_attach,
-            --     filetypes = { "bicep" },
-            --     root_dir = lsp_config.util.root_pattern(".git", "."),
-            --     single_file_support = true,
-            -- })
+                settings = {
+                    typescript = {
+                        preferences = {
+                            includePackageJsonAutoImports = "on",
+                        },
+                    },
+                    javascript = {
+                        preferences = {
+                            includePackageJsonAutoImports = "on",
+                        },
+                    },
+                },
+            }
+            vim.lsp.enable("ts_ls")
+
+            vim.lsp.enable("eslint")
 
             lsp_config.omnisharp.setup({
                 on_attach = on_attach,
@@ -129,39 +133,18 @@ return {
                 },
                 settings = {
                     FormattingOptions = {
-                        -- Enables support for reading code style, naming convention and analyzer
-                        -- settings from .editorconfig.
                         EnableEditorConfigSupport = true,
-                        -- Specifies whether 'using' directives should be grouped and sorted during
-                        -- document formatting.
                         OrganizeImports = true,
                     },
                     MsBuild = {
-                        -- If true, MSBuild project system will only load projects for files that
-                        -- were opened in the editor. This setting is useful for big C# codebases
-                        -- and allows for faster initialization of code navigation features only
-                        -- for projects that are relevant to code that is being edited. With this
-                        -- setting enabled OmniSharp may load fewer projects and may thus display
-                        -- incomplete reference lists for symbols.
                         LoadProjectsOnDemand = nil,
                     },
                     RoslynExtensionsOptions = {
-                        -- Enables support for roslyn analyzers, code fixes and rulesets.
                         EnableAnalyzersSupport = nil,
-                        -- Enables support for showing unimported types and unimported extension
-                        -- methods in completion lists. When committed, the appropriate using
-                        -- directive will be added at the top of the current file. This option can
-                        -- have a negative impact on initial completion responsiveness,
-                        -- particularly for the first few completion sessions after opening a
-                        -- solution.
                         EnableImportCompletion = nil,
-                        -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
-                        -- true
                         AnalyzeOpenDocumentsOnly = nil,
                     },
                     Sdk = {
-                        -- Specifies whether to include preview versions of the .NET SDK when
-                        -- determining which version to use for project loading.
                         IncludePrereleases = true,
                     },
                 },

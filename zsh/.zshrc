@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+# Create as alias for nuget
+alias nuget="mono /usr/local/bin/nuget.exe"
+
 #Git
 alias gs='git status'
 alias gc='git checkout'
@@ -66,8 +69,10 @@ export EDITOR=/usr/local/bin/nvim
 export VISUAL=/usr/bin/local/nvim
 
 # Start in git/
-cd ~/git/
+# cd ~/git/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

@@ -4,7 +4,7 @@ return {
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    json = { "jq" },
+                    json = { "prettier" },
                     javascript = { "prettier", stop_after_first = true },
                     javascriptreact = { "prettier", stop_after_first = true },
                     typescript = { "prettier", stop_after_first = true },

@@ -13,7 +13,7 @@ vim.o.laststatus = 2
 vim.o.mouse = "a"
 vim.o.number = true
 vim.o.pumblend = 10
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 vim.o.scrolloff = 0
 vim.o.shiftwidth = 4
 vim.o.shortmess = "IF"
@@ -35,6 +35,17 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Prevent LSP from overwriting treesitter color settings
 vim.hl.priorities.semantic_tokens = 95
+
+-- Handle CRLF
+-- vim.opt.fileformats = { "dos", "unix" }
+-- vim.opt.fileformat = "dos"
+-- vim.g.editorconfig = true
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "cs",
+--     callback = function()
+--         vim.opt_local.fileformat = "dos"
+--     end,
+-- })
 
 -- Disable some builtin vim plugins
 vim.g.loaded_2html_plugin = 1
@@ -111,8 +122,8 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- Faster way to enter insert mode
-vim.keymap.set("v", "i", "<ESC>i")
-vim.keymap.set("v", "a", "<ESC>a")
+-- vim.keymap.set("v", "i", "<ESC>i")
+-- vim.keymap.set("v", "a", "<ESC>a")
 
 -- Sane way of exiting terminal mode
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
@@ -121,6 +132,7 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>q", "<CMD>bp<BAR>bd#<CR>", { desc = "Close current buffer" })
 -- Close current window
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { desc = "Write buffer" })
+vim.keymap.set("n", "<C-s>", "<CMD>w<CR>", { desc = "Write buffer" })
 
 -- Next buffer
 vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "Go to next buffer" })
@@ -128,9 +140,6 @@ vim.keymap.set("n", "<leader>N", "<CMD>bprevious<CR>", { desc = "Go to previous 
 
 -- Clear highlights
 vim.keymap.set("n", "<leader><ESC>", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
-
--- Insert functions
-vim.keymap.set("n", "<leader>ii", "<CMD>r!uuidgen<CR>", { desc = "Insert UUID" })
 
 -- Fix copy and paste
 vim.o.clipboard = "unnamedplus"
@@ -213,6 +222,7 @@ vim.api.nvim_create_autocmd("FileType", {
         "json",
         "css",
         "html",
+        "cshtml",
         "yaml",
         "markdown",
     },
