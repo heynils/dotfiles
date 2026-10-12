@@ -2,9 +2,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = { "Hoffs/omnisharp-extended-lsp.nvim" },
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            local lsp_config = require("lspconfig")
-
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}
@@ -88,15 +87,20 @@ return {
             }
             vim.lsp.enable("lua_ls")
 
-            local builtin = require("telescope.builtin")
             vim.lsp.config["ts_ls"] = {
                 on_attach = function(_, bufnr)
                     -- Enable LSP-based keymaps
                     local opts = { noremap = true, silent = true, buffer = bufnr }
 
-                    vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-                    vim.keymap.set("n", "gr", builtin.lsp_references, opts)
-                    vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+                    vim.keymap.set("n", "gd", function()
+                        require("telescope.builtin").lsp_definitions()
+                    end, opts)
+                    vim.keymap.set("n", "gr", function()
+                        require("telescope.builtin").lsp_references()
+                    end, opts)
+                    vim.keymap.set("n", "gi", function()
+                        require("telescope.builtin").lsp_implementations()
+                    end, opts)
                     vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
                 end,
@@ -117,7 +121,7 @@ return {
 
             vim.lsp.enable("eslint")
 
-            lsp_config.omnisharp.setup({
+            vim.lsp.config["omnisharp"] = {
                 on_attach = on_attach,
                 handlers = {
                     ["textDocument/definition"] = require("omnisharp_extended").handler,
@@ -148,7 +152,8 @@ return {
                         IncludePrereleases = true,
                     },
                 },
-            })
+            }
+            vim.lsp.enable("omnisharp")
         end,
     },
 }

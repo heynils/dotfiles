@@ -8,7 +8,7 @@ return {
                 build = "make",
             },
         },
-        lazy = true,
+        event = "VeryLazy",
         cmd = "Telescope",
         config = function()
             vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
