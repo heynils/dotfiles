@@ -7,7 +7,7 @@ return {
         commit = "b1b3dcd6ed8f355c78bad3d395ff645be5f8b6ae",
     },
 
-    require("noice").setup({
+    opts = {
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
             override = {
@@ -23,5 +23,5 @@ return {
             inc_rename = true, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
-    }),
+    },
 }

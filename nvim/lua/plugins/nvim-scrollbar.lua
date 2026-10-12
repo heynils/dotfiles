@@ -11,6 +11,6 @@ return {
                 },
             })
         end,
-        lazy = false,
+        event = { "BufReadPost", "BufNewFile" },
     },
 }

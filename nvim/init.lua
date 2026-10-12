@@ -201,6 +201,9 @@ vim.api.nvim_create_user_command("WQA", function()
     vim.cmd("wa | silent! bdelete | qall!")
 end, {})
 
+-- Put Mason-installed tools on PATH without loading mason.nvim at startup
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
+
 vim.opt.rtp:prepend(lazy_path)
 require("lazy").setup("plugins")
 

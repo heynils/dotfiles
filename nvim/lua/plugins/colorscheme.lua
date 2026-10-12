@@ -5,6 +5,8 @@ return {
         priority = 1000,
         opts = {
             transparent_background = true,
+            -- detecting installed plugins costs ~10ms on every startup
+            auto_integrations = false,
             styles = {
                 sidebars = "transparent",
                 floats = "transparent",
@@ -12,6 +14,13 @@ return {
             integrations = {
                 cmp = true,
                 gitsigns = true,
+                illuminate = { enabled = true, lsp = false },
+                indent_blankline = { enabled = true },
+                lsp_trouble = true,
+                mason = true,
+                noice = true,
+                nvim_surround = true,
+                telescope = true,
             },
         },
         config = function(_, opts)

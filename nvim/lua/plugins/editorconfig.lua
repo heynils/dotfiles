@@ -1,4 +1,4 @@
 return {
     "editorconfig/editorconfig-vim",
-    lazy = false, -- Load on startup
+    event = { "BufReadPre", "BufNewFile" },
 }
