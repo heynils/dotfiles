@@ -1,5 +1,7 @@
 return {
     "christoomey/vim-tmux-navigator",
+    -- inside herdr, herdr-navigator owns ctrl+h/j/k/l
+    cond = vim.env.HERDR_ENV ~= "1",
     cmd = {
         "TmuxNavigateLeft",
         "TmuxNavigateDown",

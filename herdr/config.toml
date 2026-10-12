@@ -1,0 +1,50 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+[keys]
+prefix = "ctrl+f"
+
+# pane focus with prefix+h/j/k/l is the herdr default; direct ctrl+h/j/k/l
+# is owned by herdr-navigator below, so don't bind it to focus_pane_*
+
+# nvim-herdr-navigator (herdr plugin install kaar/nvim-herdr-navigator)
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-navigator.left"
+description = "navigate left (nvim/herdr)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-navigator.down"
+description = "navigate down (nvim/herdr)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-navigator.up"
+description = "navigate up (nvim/herdr)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-navigator.right"
+description = "navigate right (nvim/herdr)"
+
+# ctrl+l is taken by navigation, prefix+ctrl+l clears the screen
+[[keys.command]]
+key = "prefix+ctrl+l"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane send-keys \"$HERDR_ACTIVE_PANE_ID\" ctrl+l"
+description = "send ctrl+l (clear screen) to pane"
+
+[ui]
+tab_bar_position = "top"
+mouse_capture = true
+copy_on_select = true
+
+[ui.sound]
+enabled = false

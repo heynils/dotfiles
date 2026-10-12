@@ -10,7 +10,11 @@ ln -s ~/git/dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
 
 ln -s ~/git/dotfiles/git/.gitconfig ~/.gitconfig
 
-ln -s ~/git/dotfiles/tmux/.tmux.conf. ~/.tmux.conf
+ln -s ~/git/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
+mkdir -p ~/.config/herdr
+ln -s ~/git/dotfiles/herdr/config.toml ~/.config/herdr/config.toml
+herdr plugin install --yes kaar/nvim-herdr-navigator
 
 echo "Dotfiles symlinked, restarting zsh..."
 source ~/.zshrc
