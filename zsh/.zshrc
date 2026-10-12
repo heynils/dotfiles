@@ -1,4 +1,8 @@
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.dotnet/tools:$HOME/.local/share/lsp/rust-analyzer:$HOME/.cargo/bin:/Users/heynils/Library/Python/3.9/bin:$PATH
+# Inherited PATH/FPATH from parent shells would otherwise pile up duplicates.
+# Only array assignments (path=(...)) dedupe; export PATH=... does not.
+typeset -U path fpath
+
+path=($HOME/bin /usr/local/bin $HOME/.dotnet/tools $HOME/.local/share/lsp/rust-analyzer $HOME/.cargo/bin $HOME/Library/Python/3.9/bin $path)
 export DOTNET_ROOT=$HOME/.dotnet
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -12,9 +16,12 @@ zsh-syntax-highlighting
 )
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
+# brew shellenv exports FPATH, so child shells (new panes) inherit oh-my-zsh's
+# entries. Drop them so fpath matches the compdump and it isn't rebuilt every time.
+fpath=(${fpath:#$ZSH/*})
+
+source $ZSH/oh-my-zsh.sh
 
 # Create as alias for nuget
 alias nuget="mono /usr/local/bin/nuget.exe"
@@ -31,7 +38,8 @@ alias gd='git diff'
 alias ga.='git add .'
 
 #Other
-#!/bin/bash
+
+export HOMEBREW_NO_ENV_HINTS=1
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias cat='bat'
@@ -52,11 +60,8 @@ alias python='python3'
 #lazygit
 alias lg='lazygit'
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null || path=($PYENV_ROOT/bin $path)
 
 #zoxide
 eval "$(zoxide init zsh)"
@@ -64,15 +69,11 @@ eval "$(zoxide init zsh)"
 #starship prompt
 eval "$(starship init zsh)"
 
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export EDITOR=/usr/local/bin/nvim
-export VISUAL=/usr/bin/local/nvim
+path+=($DOTNET_ROOT $DOTNET_ROOT/tools)
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Start in git/
 # cd ~/git/
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+path=($HOME/.local/bin /opt/homebrew/opt/node@24/bin $path)
